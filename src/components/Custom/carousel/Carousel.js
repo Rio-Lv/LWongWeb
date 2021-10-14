@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { data } from "./data";
+import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
 
-const gap = 120;
+const gap = 100; // percentage or something
 
 const M = 50;
 const L = M - gap;
 const R = M + gap;
 
 const timer = 1000;
-const delayFactor = 1.1;
+const delayFactor = 1.5;
 const hideTimer = 300;
 
-const button_color = "#262626";
+const button_color = "#000000";
 
 function Carousel(props) {
   const [posA, setPosA] = useState(L);
@@ -35,6 +37,8 @@ function Carousel(props) {
 
   const [clickable, setClickable] = useState(true);
 
+  const [lastClicked, setLastClicked] = useState("");
+
   useEffect(() => {
     setInfoA(data.images[indexA]);
   }, [indexA]);
@@ -48,32 +52,32 @@ function Carousel(props) {
   // makes invisible during turn and moves to other side
   const hideLoop = (set, setVis, setIndex, index, name) => {
     const newIndexAfterLeft = (index) => {
-      console.log(`before func ${name} = ${index}`);
+      // console.log(`before func ${name} = ${index}`);
       if (index + 3 > maxIndex) {
         // console.log("index === maxIndex");
-        console.log(
-          `after func ${name} = ${
-            index + 3 - maxIndex - 1
-          }    index === maxIndex`
-        );
+        // console.log(
+        //   `after func ${name} = ${
+        //     index + 3 - maxIndex - 1
+        //   }    index === maxIndex`
+        // );
         return index + 3 - maxIndex - 1;
       } else {
         // console.log("index > maxIndex");
-        console.log(`after func ${name} = ${index + 3}     index < maxIndex`);
+        // console.log(`after func ${name} = ${index + 3}     index < maxIndex`);
         return index + 3;
       }
     };
     const newIndexAfterRight = (index) => {
-      console.log(`before func ${name} = ${index}`);
+      // console.log(`before func ${name} = ${index}`);
       if (index - 3 < 0) {
         // console.log("index === maxIndex");
-        console.log(
-          `after func ${name} = ${maxIndex - index + 1}    index === maxIndex`
-        );
+        // console.log(
+        //   `after func ${name} = ${maxIndex - index + 1}    index === maxIndex`
+        // );
         return maxIndex - (2 - index);
       } else {
         // console.log("index > maxIndex");
-        console.log(`after func ${name} = ${index - 3}     index < maxIndex`);
+        // console.log(`after func ${name} = ${index - 3}     index < maxIndex`);
         return index - 3;
       }
     };
@@ -126,6 +130,7 @@ function Carousel(props) {
         setClickable(true);
       }, timer * delayFactor);
     }
+    setLastClicked("left");
 
     // console.log("left has been run");
   };
@@ -153,8 +158,20 @@ function Carousel(props) {
         setClickable(true);
       }, timer * delayFactor);
     }
+    setLastClicked("right");
     // console.log("right has been run");
   };
+
+  const rightId = uuidv4();
+  const leftId = uuidv4();
+
+  useEffect(() => {
+    const rightBtn = document.getElementById(rightId);
+    setInterval(() => {
+      rightBtn.click();
+    }, 8000);
+  }, []);
+
   return (
     <DisplayArea style={{ height: `${props.H}vh` }}>
       <Box
@@ -187,24 +204,74 @@ function Carousel(props) {
       >
         {infoC}
       </Box>
+      <div
+        style={{
+          position: "fixed",
 
-      <RightButton
-        style={{}}
-        onClick={() => {
-          right();
+          width: `${window.innerWidth - 0}px`,
+          height: `${window.innerHeight - 0}px`,
+
+          // border: "3px solid red",
+          transform: "translate(0%,-50%)",
         }}
-      ></RightButton>
-      <LeftButton
-        disabled={!clickable}
-        onClick={() => {
-          left();
+      ></div>
+
+      <div
+        style={{
+          position: "fixed",
+          transform: "translate(0,-50%)",
+          width: `${window.innerWidth}px`,
+          height: `${window.innerHeight}px`,
         }}
-      ></LeftButton>
+      >
+        <div>
+          <Link to={"/projects"}>
+            <ProjectLink
+              style={{
+                position: "absolute",
+                width: "100%",
+                textAlign: "center",
+                bottom: "25px",
+                fontSize: "22px",
+                cursor: "pointer",
+                userSelect: "none",
+              }}
+            >
+              View Projects
+            </ProjectLink>
+          </Link>
+        </div>
+        <RightButton
+          id={rightId}
+          style={{}}
+          onClick={() => {
+            right();
+          }}
+        ></RightButton>
+        <LeftButton
+          id={leftId}
+          disabled={!clickable}
+          onClick={() => {
+            left();
+          }}
+        >
+          {" "}
+        </LeftButton>
+      </div>
     </DisplayArea>
   );
 }
 
 export default Carousel;
+
+const ProjectLink = styled.div`
+  color: #ffffffcc;
+  font-weight: 400;
+  transition: all 0.3s;
+  :hover {
+    color: white;
+  }
+`;
 
 const DisplayArea = styled.div`
   position: fixed;
@@ -222,10 +289,10 @@ const Box = styled.div`
 `;
 const RightButton = styled.div`
   position: absolute;
-  top: 50%;
+  bottom: 40px;
   right: 20px;
 
-  transform: translate(0, -50%);
+  transform: translate(0, 0%);
   overflow: hidden;
   border-left: 40px solid ${button_color};
   border-right: 0px solid transparent;
@@ -241,14 +308,14 @@ const RightButton = styled.div`
 `;
 const LeftButton = styled.div`
   position: absolute;
-  top: 50%;
+  bottom: 40px;
   left: 20px;
-  transform: translate(0, -50%);
+  transform: translate(0, -0%);
   border-right: 40px solid ${button_color};
   border-left: 0px solid transparent;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-
+  user-select: none;
   transition: 0.3s opacity;
   cursor: pointer;
   opacity: 10%;

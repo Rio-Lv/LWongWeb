@@ -18,12 +18,12 @@ function Careers() {
           style={{
             position: "absolute",
             filter: blur ? "blur(2px)  brightness(.8)" : "blur(0px) ",
-            backgroundImage: `url(${"https://www.visitpreston.com/assets/images/~/9412/Overall-Aerial-Hand-Sketch-web.jpg"})`,
+            backgroundImage: `url(${"https://am3pap002files.storage.live.com/y4mFDElAylusXCkDj__eLuuTJFwQ_WCm411aOOfSW75JqS2f56zt9ewKjJ3CcS6iTDss92DPtE1OtHpBHQgudq-usfwSmgxXADY_mKklHbd2ZW-JhNKPQSZDQLQZf8jdsGSYD8B7HI899mlhYUhfUhoPL50Vv6ooI7Pkn4wpXJo6DcaMPJ9L4-Rn1IuVYzrPbu6?width=3840&height=2160&cropmode=none"})`,
           }}
         ></Box>
         <Title>Availabe Positions</Title>
         <Column>
-          <FadeIn delay={400}>
+          <FadeIn delay={250}>
             <JobBlock
               title={"Bio Sewage Treatment System Designer"}
               requirements={"2 weeks swimming experience"}

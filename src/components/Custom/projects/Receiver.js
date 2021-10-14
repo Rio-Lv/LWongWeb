@@ -4,14 +4,12 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Classes from "./Classes";
 
-function Receiver() {
+function Receiver(props) {
   const [user, setUser] = useState(null);
   const [clearedList, setClearedList] = useState(null);
   const [object, setObject] = useState(null);
   const [data, setData] = useState(null);
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -43,9 +41,8 @@ function Receiver() {
       const docRef = doc(db, rootDirectory, "summary");
 
       onSnapshot(docRef, (doc) => {
-        // console.log(doc.data());
         const cleaned = clean(doc.data(), pathFilter);
-        // console.log(cleaned);
+
         setClearedList(cleaned);
       });
     }
@@ -77,7 +74,7 @@ function Receiver() {
         };
         createNestedObject(newObject, pathArray, clearedList[property]);
       }
-      // console.log(newObject);
+
       return newObject;
     };
     if (user) {
@@ -87,27 +84,26 @@ function Receiver() {
   useEffect(() => {
     if (object) {
       const projectsInfoGenerator = () => {
-        if (object.LWongWeb) {
-          const projects = object.LWongWeb.PROJECTS;
-          // console.log(projects);
+        if (object.root) {
+          const projects = object.root.LWongWeb.PROJECTS;
+
           const base = { classes: [] };
           for (const project in projects) {
             const projectClass = {
               class: project,
+              index: projects[project].index,
               projects: [],
             };
 
             if (projects[project].id !== undefined) {
-              // console.log("projects[project]", projects[project]);
-
               const inner = projects[project];
 
               for (const property in inner) {
                 if (inner[property].id !== undefined) {
-                  // console.log(property, inner[property]);
                   const innerObject = {
                     name: inner[property].name,
                     listInfo: inner[property].listInfo,
+                    index: inner[property].index,
                     details: [
                       {
                         title: inner[property].title1,
@@ -134,24 +130,25 @@ function Receiver() {
                   });
                   innerObject["photos"] = photos;
 
-                  console.log("inner object", innerObject);
-
                   projectClass["projects"].push(innerObject);
+                  projectClass["projects"].sort((a, b) => a.index - b.index);
                 }
               }
               base.classes.push(projectClass);
             }
           }
+          base.classes.sort((a, b) => a.index - b.index);
+
           return base;
         }
       };
-      console.log(projectsInfoGenerator());
+
       setData(projectsInfoGenerator());
     }
   }, [object]);
   return (
     <div>
-      <Classes data={data} />
+      <Classes dispId={props.dispId} data={data} />
     </div>
   );
 }

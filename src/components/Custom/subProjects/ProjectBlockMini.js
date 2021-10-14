@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import FadeIn from "react-fade-in";
 import { Route } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 const timer = 3; // image zoom
 const timer2 = 1;
 const zoom = 1.1;
@@ -15,6 +16,11 @@ function ProjectBlockMini(props) {
   const [project, setProject] = useState(props.project);
   const [even, setEven] = useState(true);
   const [infoHover, setInfoHover] = useState(false);
+
+  // scroll to top
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   useEffect(() => {
     if (props.index % 2 === 0) {
@@ -30,7 +36,7 @@ function ProjectBlockMini(props) {
   const makeDivList = (list) => {
     const array = [];
     list.forEach((item) => {
-      array.push(<ListItem>{item}</ListItem>);
+      array.push(<ListItem key={uuidv4()}>{item}</ListItem>);
     });
     return array;
   };
@@ -39,6 +45,8 @@ function ProjectBlockMini(props) {
     <div
       onClick={() => {
         props.func(project);
+        console.log("scrolling from project blocks mini");
+        document.getElementById(props.dispId).scrollTop = 0;
       }}
       onMouseEnter={() => {
         setInfoHover(true);
@@ -73,7 +81,7 @@ function ProjectBlockMini(props) {
         </Block>
       ) : (
         // images on the left
-        <Block style={{}}>
+        <Block>
           <ImageContainer
             style={{
               borderRight: `0px solid ${shade2}`,
@@ -119,6 +127,8 @@ const Text = styled.div`
   position: absolute;
   color: ${shade3};
   top: 50%;
+  white-space: nowrap;
+  word-spacing: 3px;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: ${0.5}s;
@@ -178,6 +188,7 @@ const Info = styled.div`
 `;
 
 const ListItem = styled.div`
+  white-space: nowrap;
   font-size: 20px;
   line-height: 4vh;
   font-weight: 400;

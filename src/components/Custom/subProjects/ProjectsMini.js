@@ -6,18 +6,23 @@ import ProjectBlockMini from "./ProjectBlockMini";
 import NavBuffer from "../projects/NavBuffer";
 import Project from "./Project";
 import { Link, Redirect } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 // this takes in data from Projects
 function ProjectsMini(props) {
   const [project, setProject] = useState(null);
+  const id = uuidv4();
   const createProjectBlocks = (projects) => {
     const projectList = [];
     for (var i = 0; i < projects.length; i++) {
       // console.log(projects[i].imageUrl);
       projectList.push(
         <ProjectBlockMini
+          dispId={props.dispId}
+          key={uuidv4()}
           func={(project) => {
             setProject(project);
+            document.getElementById(props.dispId).scrollTop = 0;
           }}
           index={i}
           project={projects[i]}
@@ -52,7 +57,13 @@ function ProjectsMini(props) {
   }, []);
 
   return (
-    <div>
+    <div
+      id={id}
+      onClick={() => {
+        console.log("scrolling from project blocks mini");
+        console.log((document.getElementById(id).scroll = -1000));
+      }}
+    >
       {project === null ? (
         <div>
           {/* <FadeIn>
@@ -62,7 +73,17 @@ function ProjectsMini(props) {
 
           <Link style={{ textDecoration: "none" }} to={`/projects`}>
             <ClassTitle>
-              <FadeIn delay={1000}>Back To Projects</FadeIn>
+              <FadeIn delay={1000}>
+                <div
+                  style={{
+                    fontWeight: 600,
+                    fontSize: "17px",
+                    transform: "translate(10px,10px)",
+                  }}
+                >
+                  Back to projects
+                </div>
+              </FadeIn>
             </ClassTitle>
           </Link>
           <DisplayAreaFull>
@@ -73,7 +94,7 @@ function ProjectsMini(props) {
                 )}
               </FadeIn>
             </DisplayArea>
-            <Line></Line>
+            {/* <Line></Line> */}
             <DisplayArea2>
               <FadeIn delay={250}>
                 {createProjectBlocks(
@@ -101,6 +122,7 @@ const DisplayAreaFull = styled.div`
   margin-left: 4px;
   margin-right: 4px;
   display: flex;
+  background-color: #f2f2f2;
   flex-direction: row;
   ::-webkit-scrollbar {
     display: none;
@@ -110,11 +132,13 @@ const DisplayAreaFull = styled.div`
 const DisplayArea = styled.div`
   width: ${window.innerWidth / 2 - 1.5}px;
   height: 100%;
+  padding-right: 4px;
   /* border-right: 3px solid white; */
 `;
 const DisplayArea2 = styled.div`
   right: 0;
   width: ${window.innerWidth / 2 - 1.5}px;
+
   height: 100%;
 `;
 const Line = styled.div`

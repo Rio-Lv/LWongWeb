@@ -10,28 +10,16 @@ const comp = (url, text) => {
 export const data = {
   images: [
     comp(
-      "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/home_carousel%2F1.png?alt=media&token=138963a0-80f1-4352-84f7-900527670499",
-      "0"
+      "https://am3pap002files.storage.live.com/y4mDaP8og02IoNGYjQpesrMtLujL3pqo43qeIDlrXEFkA3B_BwbPjhBDZfV2DOH8xl0yLdemTz7cTQU7mivWCkZNCEGR1bBD0G9xdHvotJ7JdguzQXEzl_1k4NLY_U5BfHgTeFhII_nYa1fk-uWKDgCyIuVLa_kwtGpmxMsNQDpqVND91564fzybtyGrmQa4J81?width=3264&height=2448&cropmode=none",
+      "PRESIDENTIAL BUILDING"
     ),
     comp(
-      "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/home_carousel%2Fhome_carousel_1000%2F2_1000x1000.png?alt=media&token=dab7b226-dcdb-4169-947a-f7fec4186932",
-      "1"
+      "https://am3pap002files.storage.live.com/y4mkIdD_q28ZWYF3cyYA9wFjm-4vF_XV28mdSMWdBuAB6Siu-p079BbYoKzcYPJtS423EZhGAkyeZa-zfuhMRZWG3IN3ShoP_ACNXlcsgYm8p8CmTkzIzGNV_gmsn84Vujcli01H-gUb7yoYyi48V54cZ_BMBkI6bvlMa7alSZPCFLn_47AyEJIaGjD7mwAno14?width=2048&height=1536&cropmode=none",
+      "VILANKULO AIRPORT"
     ),
     comp(
-      "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/home_carousel%2Fhome_carousel_1000%2F3_1000x1000.png?alt=media&token=843f4697-cf69-4069-9467-37977df64624",
-      "2"
-    ),
-    comp(
-      "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/home_carousel%2Fhome_carousel_1000%2F4%20(1)_1000x1000.png?alt=media&token=d4145ebb-fe64-4722-9b8b-c5819de3db15",
-      "3"
-    ),
-    comp(
-      "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/home_carousel%2Fhome_carousel_1000%2F4%20(2)_1000x1000.png?alt=media&token=2f2a2b89-73c5-452c-8558-cdc3e6540b63",
-      "4"
-    ),
-    comp(
-      "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/home_carousel%2Fhome_carousel_1000%2F4%20(4)_1000x1000.png?alt=media&token=eff29639-27ff-4505-9b0d-9bf2d8b6cc70",
-      "5"
+      "https://am3pap002files.storage.live.com/y4mFDElAylusXCkDj__eLuuTJFwQ_WCm411aOOfSW75JqS2f56zt9ewKjJ3CcS6iTDss92DPtE1OtHpBHQgudq-usfwSmgxXADY_mKklHbd2ZW-JhNKPQSZDQLQZf8jdsGSYD8B7HI899mlhYUhfUhoPL50Vv6ooI7Pkn4wpXJo6DcaMPJ9L4-Rn1IuVYzrPbu6?width=3840&height=2160&cropmode=none",
+      "JIANGXI OFFICES"
     ),
   ],
 };

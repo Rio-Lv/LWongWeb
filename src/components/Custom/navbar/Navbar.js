@@ -4,9 +4,14 @@ import { data } from "./data";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [hide, setHide] = useState(false);
+  const [hide, setHide] = useState(true);
   const [lock, setLock] = useState(false);
   const [mouseOnNav, setMouseOnNav] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setHide(false);
+    }, 3000);
+  }, []);
 
   const wheel = (e) => {
     if (!lock) {
@@ -19,6 +24,16 @@ function Navbar() {
   };
 
   useEffect(() => {
+    var hider;
+    clearInterval(hider);
+    if (hide === false) {
+      hider = setTimeout(() => {
+        setHide(true);
+      }, 6000);
+    }
+  }, [hide]);
+
+  useEffect(() => {
     window.addEventListener("wheel", wheel);
   }, []);
   const createBar = () => {
@@ -28,11 +43,15 @@ function Navbar() {
         <Link
           key={tab.name}
           to={`/${tab.name}`}
-          style={{ textDecoration: "none" }}
+          style={{ textDecoration: "none", userSelect: "none" }}
         >
           <Tab
+            onMouseOver={() => {
+              setHide(false);
+            }}
             onClick={() => {
               tab.func();
+              // setHide(true);
             }}
           >
             {tab.name}
@@ -73,7 +92,7 @@ function Navbar() {
           }}
           to={"/home"}
         >
-          <Title>
+          <Title style={{ userSelect: "none" }}>
             {data.title.name}
             {/* <SubTitle> /about</SubTitle> */}
           </Title>
@@ -122,7 +141,7 @@ const Bar = styled.div`
   margin-right: 50px;
 `;
 const Tab = styled.div`
-  width: 100px;
+  margin-right: 20px;
   font-size: 20px;
   color: ${color4};
   cursor: pointer;

@@ -22,16 +22,18 @@ function ClassBlock(props) {
   const [infoHover, setInfoHover] = useState(false);
 
   const [shift, setShift] = useState(0);
+  //scroll to top
   useEffect(() => {
-    if (props.index % 2 === 0) {
+    window.scroll(0, 0);
+  }, []);
+  useEffect(() => {
+    if (props.index % 2 === 0 || props.index === 0) {
       setEven(true);
     } else {
       setEven(false);
     }
-  }, []);
-  useEffect(() => {
-    // console.log(props.Class.projects);
-  }, []);
+  }, [props.index]);
+
   const makeProjectList = () => {
     const list = [];
 
@@ -45,7 +47,7 @@ function ClassBlock(props) {
   };
   return (
     <div>
-      {props.Class.projects.length > 0 ? (
+      {props.Class.projects.length ? (
         <div>
           {!even ? (
             // images on the right
@@ -53,6 +55,8 @@ function ClassBlock(props) {
               <Block
                 onClick={() => {
                   props.setClassInfo(props.Class);
+                  // props.disp.scrollTop = 0;
+                  document.getElementById(props.dispId).scrollTop = 0;
                 }}
               >
                 <Info
@@ -89,6 +93,7 @@ function ClassBlock(props) {
             <Link to={`/projects/${props.Class.class}`}>
               <Block
                 onClick={() => {
+                  // props.disp.scrollTop = 0;
                   props.setClassInfo(props.Class);
                 }}
               >
@@ -150,11 +155,14 @@ const Text = styled.div`
   font-weight: 600;
   font-size: 20px;
   position: absolute;
+  letter-spacing: 2px;
+
   color: ${shade3};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: ${0.5}s;
+  white-space: nowrap;
 `;
 const ListBox = styled.div`
   ::-webkit-scrollbar {
@@ -173,10 +181,11 @@ const ListBox = styled.div`
   overflow: scroll;
 `;
 const ListItem = styled.div`
-  font-size: 20px;
+  font-size: 18px;
   line-height: 4vh;
   font-weight: 400;
   color: ${shade3};
+  white-space: nowrap;
 `;
 const ImageContainer = styled.div`
   height: ${blockHeight}px;

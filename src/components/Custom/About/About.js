@@ -22,7 +22,7 @@ function About() {
           type="video/webm"
         />
       </video> */}
-      <FadeIn delay={250}>
+      <FadeIn delay={150}>
         <Title>About Us</Title>
 
         <MainImage
@@ -30,29 +30,40 @@ function About() {
             backgroundImage: `url(${"https://dr3h7ptpe31k5.cloudfront.net/Site/Logo/5605/HS-workspace%20hero.jpeg"})`,
           }}
         />
-        <InfoTitle> Consult | Construct</InfoTitle>
-        <div style={{ position: "relative", width: "100%", height: "220px" }}>
+        <InfoTitle>ESTABLISHMENT</InfoTitle>
+        <div style={{ position: "relative", width: "100%", height: "180px" }}>
           <Info>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-            deleniti saepe aut asperiores illo mollitia corporis vitae harum non
-            provident cupiditate iure dolore quos voluptatum, molestiae animi
-            sapiente magni nostrum. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Dolore, nam eum? Cum, vel. Numquam laborum officia
-            voluptas, praesentium libero velit ducimus magni iusto tenetur.
-            Corrupti aperiam modi ex deleniti laboriosam? Lorem, ipsum dolor sit
-            amet consectetur adipisicing elit. Debitis, enim officia. Soluta
-            consequatur velit praesentium? Explicabo velit obcaecati aliquid
-            placeat sit mollitia nisi quam rem reiciendis ipsum dignissimos,
-            error libero.
+            LWong Consulting is a registered Mozambican consulting company
+            established in 1994 and has since then carried out extensive range
+            of projects all over Mozambique. Our core staff comprise of highly
+            competent professionals, with experiences ranging from 5 to 30 years
+            and a profound knowledge of Mozambican working conditions. The
+            multi-lingual capability of the company staff has allowed for highly
+            effective coordination and communication with a wide array of
+            consulting and construction companies.
           </Info>
         </div>
-        <div style={{ position: "relative", width: "100%", height: "520px" }}>
+        <div style={{ position: "relative", width: "100%", height: "420px" }}>
           <SecondImage
             style={{
               backgroundImage: `url(${"https://dr3h7ptpe31k5.cloudfront.net/Site/Logo/5605/HS-workspace%20hero.jpeg"})`,
             }}
           />
         </div>
+        <InfoTitle>VISION</InfoTitle>
+        <div style={{ position: "relative", width: "100%", height: "220px" }}>
+          <Info>
+            Our vision is to be one of the leading companies in sustainable and
+            green projects, aiming to bring about the development and well being
+            of the local population. We aim to accomplish this through constant
+            investigations and collaborations with leading consulting companies
+            around the globe to ensure maximum efficiency and quality of
+            services. ur mission is to offer our best professional knowledge and
+            expertise in order to satisfy our clients’ needs whilst contributing
+            towards the development of Mozambique.
+          </Info>
+        </div>
+
         <div
           style={{ position: "relative", width: "100%", height: "220px" }}
         ></div>
@@ -70,7 +81,7 @@ const Title = styled.div`
   color: #f2f2f2;
   text-align: center;
   font-weight: 600;
-  background-color: #00000078;
+  background-color: #000000;
 `;
 
 const MainImage = styled.div`

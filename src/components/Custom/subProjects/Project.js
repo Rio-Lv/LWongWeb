@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Close from "./Close";
-import NavBuffer from "./NavBuffer";
+
 import FadeIn from "react-fade-in/lib/FadeIn";
 import PhotoGallery from "./PhotoGallery";
 function Project(props) {
   const [project, setProject] = useState(props.project);
   const [zoomBack, setZoomBack] = useState(1);
+  const [zoomColumn, setZoomColumn] = useState(1);
+  useEffect(() => {
+    window.scroll(0, 0);
+    console.log(document.documentElement.scrollTop);
+    console.log("project opened, window scrolled?");
+  }, []);
   useEffect(() => {
     console.log(props.project.photos[0].src);
     setProject(props.project);
@@ -59,9 +65,16 @@ function Project(props) {
           </RowInfo>
           <Row>
             <ColumnImage
+              onMouseEnter={() => {
+                setZoomColumn(1);
+                console.log("Big Image");
+              }}
+              onMouseLeave={() => {
+                setZoomColumn(1.2);
+              }}
               style={{
                 backgroundImage: `url(${project.photos[1].src})`,
-                transform: `scale(${zoomBack})`,
+                transform: `scale(${zoomColumn})`,
               }}
             ></ColumnImage>
             <ColumnInfo>
@@ -80,6 +93,7 @@ function Project(props) {
             </GalleryAreaBox>
           </GalleryArea>
         </GalleryAreaBack>
+        <div style={{ height: "0px" }}></div>
       </DisplayArea>
     </div>
   );
@@ -98,14 +112,14 @@ const BackDrop = styled.div`
   transition: 8s ease;
 `;
 const DisplayArea = styled.div`
-  position: relative;
+  /* position: relative; */
   width: 100%;
 `;
 
 const BigImage = styled.div`
   position: relative;
   width: 100%;
-  height: ${window.innerHeight - 80}px;
+  height: ${window.innerHeight}px;
 `;
 const BigImageTitle = styled.div`
   position: absolute;
@@ -188,9 +202,9 @@ const ColumnImage = styled.div`
   background-size: cover;
   background-position: center;
   transition: 8s ease;
-  transform: scale(1);
+  transform: scale(1.2);
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1);
   }
 `;
 const GalleryArea = styled.div`

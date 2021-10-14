@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 function Classes(props) {
   const [classInfo, setClassInfo] = useState(null);
 
+  const id = uuidv4();
   const createProjectBlocks = (classes) => {
     // console.log(classes);
     const projectList = [];
@@ -18,6 +19,7 @@ function Classes(props) {
       //console.log(classes[i]);
       projectList.push(
         <ClassBlock
+          dispId={id}
           key={uuidv4()}
           index={i}
           Class={classes[i]}
@@ -30,7 +32,7 @@ function Classes(props) {
   return (
     <div>
       {props.data ? (
-        <DisplayArea>
+        <DisplayArea id={id}>
           <Route exact path={`/projects`}>
             <FadeIn>
               <Title>Project Types</Title>
@@ -45,6 +47,7 @@ function Classes(props) {
           {classInfo != null ? (
             <Route path={`/projects/${classInfo.class}`}>
               <ProjectsMini
+                dispId={id}
                 Class={classInfo}
                 close={() => {
                   setClassInfo(null);
