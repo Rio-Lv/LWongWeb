@@ -10,7 +10,7 @@ function Navbar() {
   useEffect(() => {
     setTimeout(() => {
       setHide(false);
-    }, 3000);
+    }, 2000);
   }, []);
 
   const wheel = (e) => {
@@ -29,7 +29,7 @@ function Navbar() {
     if (hide === false) {
       hider = setTimeout(() => {
         setHide(true);
-      }, 6000);
+      }, 10000);
     }
   }, [hide]);
 

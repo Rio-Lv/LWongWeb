@@ -5,26 +5,10 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Classes from "./Classes";
 
 function Receiver(props) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("bhzfBvdgxZYrvKvDaXz5iaQzIjn1");
   const [clearedList, setClearedList] = useState(null);
   const [object, setObject] = useState(null);
   const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        setUser(user);
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
-  }, []);
 
   useEffect(() => {
     const clean = (object, pathFilter) => {
@@ -36,8 +20,8 @@ function Receiver(props) {
       return cleaned;
     };
     if (user) {
-      const rootDirectory = `trees/users/${user.uid}/`;
-      const pathFilter = `trees/users/${user.uid}/`;
+      const rootDirectory = `trees/users/${user}/`;
+      const pathFilter = `trees/users/${user}/`;
       const docRef = doc(db, rootDirectory, "summary");
 
       onSnapshot(docRef, (doc) => {
@@ -83,6 +67,7 @@ function Receiver(props) {
   }, [clearedList, user]);
   useEffect(() => {
     if (object) {
+      console.log(object);
       const projectsInfoGenerator = () => {
         if (object.root) {
           const projects = object.root.LWongWeb.PROJECTS;
@@ -144,6 +129,8 @@ function Receiver(props) {
       };
 
       setData(projectsInfoGenerator());
+    } else {
+      console.log("no Object");
     }
   }, [object]);
   return (
