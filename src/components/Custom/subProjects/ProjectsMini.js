@@ -62,61 +62,66 @@ function ProjectsMini(props) {
   }, []);
 
   return (
-    <div
-      id={id}
-      onClick={() => {
-        console.log("scrolling from project blocks mini");
-        console.log((document.getElementById(id).scroll = -1000));
-      }}
-    >
-      {project === null ? (
-        <div>
-          {/* <FadeIn>
+    <div>
+      <Route exact path={`${props.routePath}`}>
+        <div
+          id={id}
+          onClick={() => {
+            console.log("scrolling from project blocks mini");
+            console.log((document.getElementById(id).scroll = -1000));
+          }}
+        >
+          <div>
+            {/* <FadeIn>
             <NavBuffer pad={80} transition={0.3}></NavBuffer>
           </FadeIn> */}
-          <Title>Sub Projects</Title>
+            <Title>Sub Projects</Title>
 
-          <Link style={{ textDecoration: "none" }} to={`/projects`}>
-            <ClassTitle>
-              <FadeIn delay={1000}>
-                <div
-                  style={{
-                    fontWeight: 600,
-                    fontSize: "17px",
-                    transform: "translate(10px,10px)",
-                  }}
-                >
-                  Back to projects
-                </div>
-              </FadeIn>
-            </ClassTitle>
-          </Link>
-          <DisplayAreaFull>
-            <DisplayArea>
-              <FadeIn delay={250}>
-                {createProjectBlocks(
-                  arraySplit(props.Class.projects).leftArray
-                )}
-              </FadeIn>
-            </DisplayArea>
-            {/* <Line></Line> */}
-            <DisplayArea2>
-              <FadeIn delay={250}>
-                {createProjectBlocks(
-                  arraySplit(props.Class.projects).rightArray
-                )}
-              </FadeIn>
-            </DisplayArea2>
-          </DisplayAreaFull>
+            <Link style={{ textDecoration: "none" }} to={`/projects`}>
+              <ClassTitle>
+                <FadeIn delay={1000}>
+                  <div
+                    style={{
+                      fontWeight: 600,
+                      fontSize: "17px",
+                      transform: "translate(10px,10px)",
+                    }}
+                  >
+                    Back to projects
+                  </div>
+                </FadeIn>
+              </ClassTitle>
+            </Link>
+            <DisplayAreaFull>
+              <DisplayArea>
+                <FadeIn delay={250}>
+                  {createProjectBlocks(
+                    arraySplit(props.Class.projects).leftArray
+                  )}
+                </FadeIn>
+              </DisplayArea>
+              {/* <Line></Line> */}
+              <DisplayArea2>
+                <FadeIn delay={250}>
+                  {createProjectBlocks(
+                    arraySplit(props.Class.projects).rightArray
+                  )}
+                </FadeIn>
+              </DisplayArea2>
+            </DisplayAreaFull>
+          </div>
         </div>
-      ) : (
-        <Project
-          project={project}
-          func={() => {
-            setProject(null);
-          }}
-        ></Project>
-      )}
+      </Route>
+      {project ? (
+        <Route path={`${props.routePath}/${project.name}`}>
+          <Project
+            project={project}
+            func={() => {
+              setProject(null);
+            }}
+          ></Project>
+        </Route>
+      ) : null}
     </div>
   );
 }
