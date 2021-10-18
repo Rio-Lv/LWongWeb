@@ -5,28 +5,33 @@ import FadeIn from "react-fade-in/lib/FadeIn";
 import ProjectBlockMini from "./ProjectBlockMini";
 import NavBuffer from "../projects/NavBuffer";
 import Project from "./Project";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, Route } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 // this takes in data from Projects
 function ProjectsMini(props) {
   const [project, setProject] = useState(null);
+  const [routePath, setRoutePath] = useState(props.routePath);
+
   const id = uuidv4();
+
   const createProjectBlocks = (projects) => {
     const projectList = [];
     for (var i = 0; i < projects.length; i++) {
       // console.log(projects[i].imageUrl);
       projectList.push(
-        <ProjectBlockMini
-          dispId={props.dispId}
-          key={uuidv4()}
-          func={(project) => {
-            setProject(project);
-            document.getElementById(props.dispId).scrollTop = 0;
-          }}
-          index={i}
-          project={projects[i]}
-        />
+        <Link to={`${props.routePath}/${projects[i].name}`}>
+          <ProjectBlockMini
+            dispId={props.dispId}
+            key={uuidv4()}
+            func={(project) => {
+              setProject(project);
+              document.getElementById(props.dispId).scrollTop = 0;
+            }}
+            index={i}
+            project={projects[i]}
+          />
+        </Link>
       );
     }
     return projectList;

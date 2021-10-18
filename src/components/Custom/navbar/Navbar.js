@@ -28,7 +28,7 @@ function Navbar() {
     clearInterval(hider);
     if (hide === false) {
       hider = setTimeout(() => {
-        setHide(true);
+        // setHide(true);
       }, 10000);
     }
   }, [hide]);
@@ -74,13 +74,9 @@ function Navbar() {
         }}
         style={{
           transform:
-            hide && !mouseOnNav ? "translate(0,-80px)" : "translate(0px)",
-          height: hide ? "0px" : "80px",
-          backgroundColor: hide
-            ? "transparent"
-            : mouseOnNav
-            ? "#0D0D0D"
-            : "white",
+            hide && !mouseOnNav ? "translate(0,-60px)" : "translate(0px)",
+          height: hide ? "0" : "60px",
+          backgroundColor: mouseOnNav ? "#0D0D0D" : "white",
         }}
       >
         <Link

@@ -47,6 +47,7 @@ function Classes(props) {
           {classInfo != null ? (
             <Route path={`/projects/${classInfo.class}`}>
               <ProjectsMini
+                routePath={`/projects/${classInfo.class}`}
                 dispId={id}
                 Class={classInfo}
                 close={() => {

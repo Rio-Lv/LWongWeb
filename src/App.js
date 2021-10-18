@@ -61,4 +61,12 @@ function App() {
   );
 }
 
+// notes:
+// calss block is abit confusing, people think they can click a specific project
+// client recommend title persists on hover
+
+// project on back should go back to specific class type
+
+// lock the nav bar
+
 export default App;
