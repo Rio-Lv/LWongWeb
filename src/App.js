@@ -18,6 +18,7 @@ import {
 import "./App.css";
 
 function App() {
+  const [navbar, setNavbar] = useState(false);
   useEffect(() => {}, []);
   const dispId = uuidv4;
   return (
@@ -26,19 +27,16 @@ function App() {
         <DataProvider>
           {/* <ProjectsMini /> */}
           <Router>
-            <Navbar dispId={dispId} />
+            <Navbar dispId={dispId} setNavbar={setNavbar} />
             <Switch>
-              <Route exact path="/">
-                <Redirect to="/home" />
-              </Route>
               <Route path="/about">
                 <About />
               </Route>
-              <Route path="/home">
+              <Route exact path={["/"]}>
                 <Carousel />
               </Route>
               <Route path="/projects">
-                <Receiver dispId={dispId} />
+                <Receiver dispId={dispId} navbar={navbar} />
                 {/* This has classes from projects */}
               </Route>
               <Route path="/Careers">

@@ -38,9 +38,9 @@ function About() {
             of projects all over Mozambique. Our core staff comprise of highly
             competent professionals, with experiences ranging from 5 to 30 years
             and a profound knowledge of Mozambican working conditions. The
-            multi-lingual capability of the company staff has allowed for highly
-            effective coordination and communication with a wide array of
-            consulting and construction companies.
+            multi-lingual capability of the company staff has allowed for highly
+            effective coordination and communication with a wide array of
+            consulting and construction companies.
           </Info>
         </div>
         <div style={{ position: "relative", width: "100%", height: "420px" }}>
@@ -54,13 +54,13 @@ function About() {
         <div style={{ position: "relative", width: "100%", height: "220px" }}>
           <Info>
             Our vision is to be one of the leading companies in sustainable and
-            green projects, aiming to bring about the development and well being
+            green projects, aiming to bring about the development and well being
             of the local population. We aim to accomplish this through constant
             investigations and collaborations with leading consulting companies
             around the globe to ensure maximum efficiency and quality of
-            services. ur mission is to offer our best professional knowledge and
-            expertise in order to satisfy our clients’ needs whilst contributing
-            towards the development of Mozambique.
+            services. Our mission is to offer our best professional knowledge
+            and expertise in order to satisfy our clients’ needs whilst
+            contributing towards the development of Mozambique.
           </Info>
         </div>
 

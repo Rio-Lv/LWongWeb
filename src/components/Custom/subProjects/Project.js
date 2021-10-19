@@ -4,6 +4,8 @@ import Close from "./Close";
 
 import FadeIn from "react-fade-in/lib/FadeIn";
 import PhotoGallery from "./PhotoGallery";
+
+// change text 2 to be split into array by commas
 function Project(props) {
   const [project, setProject] = useState(props.project);
   const [zoomBack, setZoomBack] = useState(1);
@@ -38,6 +40,12 @@ function Project(props) {
 
         <FadeIn>
           <BigImage
+            style={{
+              transition: ".1s ease",
+              height: props.navbar
+                ? `${window.innerHeight - 0}px`
+                : `${window.innerHeight - 60}px`,
+            }}
             onMouseEnter={() => {
               setZoomBack(1.2);
               console.log("Big Image");
@@ -48,7 +56,7 @@ function Project(props) {
           >
             <Close
               func={() => {
-                props.func();
+                window.history.go(-1);
               }}
             />
             <BigImageInfoBox>
@@ -59,15 +67,18 @@ function Project(props) {
 
           <RowInfo>
             <CenterText>
-              <CenterTextTitle>{project.details[1].title}</CenterTextTitle>
-              <div>{project.details[1].text}</div>
+              {/* <CenterTextTitle>{project.details[1].title}</CenterTextTitle> */}
+              <div>{project.details[1].text.split(";;")[0]}</div>
+              <div>{project.details[1].text.split(";;")[1]}</div>
+              <div>{project.details[1].text.split(";;")[2]}</div>
             </CenterText>
           </RowInfo>
           <Row>
             <ColumnImage
               onMouseEnter={() => {
                 setZoomColumn(1);
-                console.log("Big Image");
+
+                console.log(project.details[2].text[0]);
               }}
               onMouseLeave={() => {
                 setZoomColumn(1.2);
@@ -119,7 +130,6 @@ const DisplayArea = styled.div`
 const BigImage = styled.div`
   position: relative;
   width: 100%;
-  height: ${window.innerHeight}px;
 `;
 const BigImageTitle = styled.div`
   position: absolute;
@@ -159,7 +169,7 @@ const BigImageInfoBox = styled.div`
 const RowInfo = styled.div`
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 240px;
   color: #595959;
   background-color: #ffffff;
   overflow: scroll;

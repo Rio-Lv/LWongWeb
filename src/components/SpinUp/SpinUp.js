@@ -15,14 +15,16 @@ function SpinUp() {
   const [opacity, setOpacity] = useState(0);
 
   useEffect(() => {
-    setOpacity(100);
-    setR1(0);
-    setR2(0);
-    setR3(0);
-    setDarken(true);
     setTimeout(() => {
-      setOpacity(0);
-    }, 4000);
+      setOpacity(100);
+      setR1(0);
+      setR2(0);
+      setR3(0);
+      setDarken(true);
+      setTimeout(() => {
+        setOpacity(0);
+      }, 4000);
+    }, 1000);
   }, []);
 
   const filter = darken

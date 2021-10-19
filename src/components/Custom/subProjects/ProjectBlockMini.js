@@ -138,7 +138,7 @@ const BriefBox = styled.div`
 
   position: absolute;
 
-  height: ${blockHeight / 2}px;
+  height: ${blockHeight / 3}px;
 
   top: 50%;
   left: 50%;

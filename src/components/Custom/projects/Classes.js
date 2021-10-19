@@ -19,6 +19,7 @@ function Classes(props) {
       //console.log(classes[i]);
       projectList.push(
         <ClassBlock
+          navbar={props.navbar}
           dispId={id}
           key={uuidv4()}
           index={i}
@@ -48,6 +49,8 @@ function Classes(props) {
             <Route path={`/projects/${classInfo.class}`}>
               <ProjectsMini
                 routePath={`/projects/${classInfo.class}`}
+                navbar={props.navbar}
+                className={classInfo.class}
                 dispId={id}
                 Class={classInfo}
                 close={() => {

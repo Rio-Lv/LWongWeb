@@ -75,7 +75,7 @@ function ProjectsMini(props) {
             {/* <FadeIn>
             <NavBuffer pad={80} transition={0.3}></NavBuffer>
           </FadeIn> */}
-            <Title>Sub Projects</Title>
+            <Title>{props.className}</Title>
 
             <Link style={{ textDecoration: "none" }} to={`/projects`}>
               <ClassTitle>
@@ -115,6 +115,7 @@ function ProjectsMini(props) {
       {project ? (
         <Route path={`${props.routePath}/${project.name}`}>
           <Project
+            navbar={props.navbar}
             project={project}
             func={() => {
               setProject(null);

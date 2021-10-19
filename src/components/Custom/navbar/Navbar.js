@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { data } from "./data";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar(props) {
   const [hide, setHide] = useState(true);
   const [lock, setLock] = useState(false);
   const [mouseOnNav, setMouseOnNav] = useState(false);
@@ -31,6 +31,10 @@ function Navbar() {
         // setHide(true);
       }, 10000);
     }
+  }, [hide]);
+
+  useEffect(() => {
+    props.setNavbar(hide);
   }, [hide]);
 
   useEffect(() => {
@@ -86,7 +90,7 @@ function Navbar() {
             margin: "auto",
             marginLeft: "80px",
           }}
-          to={"/home"}
+          to={"/"}
         >
           <Title style={{ userSelect: "none" }}>
             {data.title.name}

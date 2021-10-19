@@ -74,7 +74,13 @@ function ClassBlock(props) {
                     {props.Class.class}
                   </Text>
                   {infoHover ? (
-                    <ListBox>
+                    <ListBox
+                      style={{
+                        height: `${
+                          (blockHeight * makeProjectList().length) / 10
+                        }px`,
+                      }}
+                    >
                       <FadeIn delay={150}>{makeProjectList()}</FadeIn>
                     </ListBox>
                   ) : null}
@@ -120,7 +126,13 @@ function ClassBlock(props) {
                     {props.Class.class}
                   </Text>
                   {infoHover ? (
-                    <ListBox>
+                    <ListBox
+                      style={{
+                        height: `${
+                          (blockHeight * makeProjectList().length) / 10
+                        }px`,
+                      }}
+                    >
                       <FadeIn delay={150}>{makeProjectList()}</FadeIn>
                     </ListBox>
                   ) : null}
@@ -172,13 +184,11 @@ const ListBox = styled.div`
 
   position: absolute;
 
-  height: ${blockHeight / 2}px;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: ${timer2}s;
-  overflow: scroll;
+  /* overflow: scroll; */
 `;
 const ListItem = styled.div`
   font-size: 18px;

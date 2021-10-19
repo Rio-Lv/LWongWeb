@@ -29,8 +29,10 @@ function Careers() {
               requirements={"2 weeks swimming experience"}
             />
             <JobBlock
-              title={"House Plant"}
-              requirements={"182+ years at a rainforest"}
+              title={"Electrical Engineer"}
+              requirements={
+                "Bachelor of Electrical Engineering,Prefered languages English, Portuguese and Chinese"
+              }
             />
             <JobBlock
               title={"Library Cat"}
