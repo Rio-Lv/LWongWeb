@@ -44,7 +44,7 @@ function Project(props) {
               transition: ".1s ease",
               height: props.navbar
                 ? `${window.innerHeight - 0}px`
-                : `${window.innerHeight - 60}px`,
+                : `${window.innerHeight - 70}px`,
             }}
             onMouseEnter={() => {
               setZoomBack(1.2);

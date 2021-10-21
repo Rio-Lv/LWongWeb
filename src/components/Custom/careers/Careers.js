@@ -35,7 +35,7 @@ function Careers() {
               }
             />
             <JobBlock
-              title={"Library Cat"}
+              title={"Interior Designer"}
               requirements={
                 "Harvard degree in criminal phsycology and marine biology"
               }

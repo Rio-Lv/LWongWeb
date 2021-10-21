@@ -55,21 +55,22 @@ const Block = styled.div`
 `;
 
 const ContactTitle = styled.div`
-  margin-top: 70px;
+  margin-top: 40px;
+  line-height: 50px;
   font-weight: 600;
   font-size: 20px;
   cursor: pointer;
   color: #595959;
 `;
 const ContactRequirements = styled.div`
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 24px;
   cursor: default;
   color: #595959;
 `;
 
 const ContactInfo = styled.div`
-  margin-top: 48px;
+  margin-top: 58px;
   font-weight: 600;
   font-size: 20px;
   cursor: pointer;

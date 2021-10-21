@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { data } from "./data";
 import { Link } from "react-router-dom";
+import logo from "./logo.png";
 
 function Navbar(props) {
   const [hide, setHide] = useState(true);
@@ -69,6 +70,7 @@ function Navbar(props) {
   return (
     <div>
       {/* <Back style={{ height: hide ? "0px" : "80px" }} /> */}
+
       <Nav
         onMouseEnter={() => {
           setMouseOnNav(true);
@@ -78,8 +80,8 @@ function Navbar(props) {
         }}
         style={{
           transform:
-            hide && !mouseOnNav ? "translate(0,-60px)" : "translate(0px)",
-          height: hide ? "0" : "60px",
+            hide && !mouseOnNav ? "translate(0,-70px)" : "translate(0px)",
+          height: hide ? "0" : "70px",
           backgroundColor: mouseOnNav ? "#0D0D0D" : "white",
         }}
       >
@@ -92,11 +94,29 @@ function Navbar(props) {
           }}
           to={"/"}
         >
-          <Title style={{ userSelect: "none" }}>
-            {data.title.name}
-            {/* <SubTitle> /about</SubTitle> */}
-          </Title>
+          <div>
+            <img
+              src={logo}
+              alt=""
+              style={{
+                height: "45px",
+                position: "absolute",
+                left: "15px",
+                top: hide ? "2px" : "13px",
+                transition: ".2s ease",
+
+                filter: !mouseOnNav
+                  ? "invert(0) grayscale(0) contrast(1.3) brightness(0)"
+                  : "invert(1) grayscale(1) contrast(1) brightness(5)",
+              }}
+            />
+            <Title style={{ userSelect: "none" }}>
+              {data.title.name}
+              {/* <SubTitle> /about</SubTitle> */}
+            </Title>
+          </div>
         </Link>
+
         <Bar>{createBar()}</Bar>
       </Nav>
       <NavGradientTop />
@@ -122,12 +142,13 @@ const SubTitle = styled.div`
 const Title = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 24px;
+  font-size: 22px;
   white-space: nowrap;
   color: ${color4};
   cursor: pointer;
-  transition: 0.1s ease;
-  font-weight: 600;
+  transition: 0.15s ease;
+  font-weight: 800;
+  margin-left: 2px;
 `;
 const Back = styled.div`
   position: fixed;
@@ -180,7 +201,7 @@ const NavGradientBottom = styled.div`
 
 const Nav = styled.div`
   position: relative;
-
+  /* overflow: hidden; */
   width: 100%;
   height: 80px;
   display: flex;

@@ -23,13 +23,13 @@ function Contact() {
         <Row>
           <FadeIn delay={500}>
             <ContactBlock
-              title={"EMail"}
-              requirements={"inquiries@lwongconsulting@gmail.com"}
+              title={"EMail Us At"}
+              requirements={"inquiries@lwongconsulting.com"}
             />
-            <ContactBlock
+            {/* <ContactBlock
               title={"Call"}
               requirements={"+258...Office Number"}
-            />
+            /> */}
           </FadeIn>
         </Row>
       </FadeIn>
