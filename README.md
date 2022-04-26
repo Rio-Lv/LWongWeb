@@ -1,6 +1,6 @@
 <h1>L Wong Consulting Website</h1>
 <h3>
-The L Wong Consulting Website was created using React and Tree(My own data storage UI using firebase). 
+The L Wong Consulting Website was created using React and Tree (My own data storage UI using firebase). 
 </h3>
 <p1>
  
