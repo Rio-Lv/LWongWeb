@@ -8,6 +8,16 @@ function Comp(props) {
   const [loaded, setLoaded] = useState();
   const [zoom, setZoom] = useState(false); // percent
 
+  const [h, setH] = useState(window.innerHeight);
+  const [w, setW] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setH(window.innerHeight);
+      setW(window.innerWidth);
+    });
+  });
+
   useEffect(() => {
     const timer = 8000;
     var boo = true;
@@ -36,6 +46,8 @@ function Comp(props) {
         <FadeIn>
           <Image
             style={{
+              width: `${w}px`,
+              height: `${h}px`,
               backgroundImage: `url(${props.url})`,
               backgroundSize: zoom ? "130%" : "110%",
               backgroundRepeat: "no-repeat",
@@ -45,15 +57,17 @@ function Comp(props) {
             style={{
               position: "fixed",
 
-              width: `${width - 0}px`,
-              height: `${height - 0}px`,
+              width: `${w - 0}px`,
+              height: `${h - 0}px`,
 
               // border: "3px solid red",
               transform: "translate(-50%,-50%)",
             }}
           >
-            <BigImageInfoBox>
-              <BigImageTitle>{props.text}</BigImageTitle>
+            <BigImageInfoBox style={{ width: `${w}px` }}>
+              <BigImageTitle style={{ width: `${w}px` }}>
+                {props.text}
+              </BigImageTitle>
               {/* <BigImageInfo>click to view more projects</BigImageInfo> */}
             </BigImageInfoBox>
           </div>
@@ -72,15 +86,12 @@ const Image = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   /* border: 3px solid red; */
-  width: ${width}px;
-  height: ${height}px;
 
   background-color: "black";
   background-position: center;
   transition: 9s ease;
 `;
 const BigImageTitle = styled.div`
-  width: ${width}px;
   text-align: center;
   position: absolute;
   /* left: 100px; */
@@ -92,7 +103,6 @@ const BigImageTitle = styled.div`
   transition: 0.3s;
 `;
 const BigImageInfo = styled.div`
-  width: ${width}px;
   text-align: center;
   position: absolute;
   /* left: 100px; */

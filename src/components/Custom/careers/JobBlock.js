@@ -24,7 +24,7 @@ function JobBlock(props) {
         ) : (
           <FadeIn>
             <JobInfo>Send us your CV at : careers@lwongconsulting.com</JobInfo>
-            <JobInfo2>Using Title : Apply {props.title}</JobInfo2>
+            {/* <JobInfo2>Using Title : Apply {props.title}</JobInfo2> */}
           </FadeIn>
         )}
       </Block>

@@ -172,6 +172,16 @@ function Carousel(props) {
     }, 8000);
   }, []);
 
+  const [h, setH] = useState(window.innerHeight);
+  const [w, setW] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setH(window.innerHeight);
+      setW(window.innerWidth);
+    });
+  });
+
   return (
     <DisplayArea style={{ height: `${props.H}vh` }}>
       <Box
@@ -188,8 +198,6 @@ function Carousel(props) {
         style={{
           left: `${posB}vw`,
           opacity: visB,
-          height: `${props.H}vh`,
-          width: `${props.W}vw`,
         }}
       >
         {infoB}
@@ -198,8 +206,6 @@ function Carousel(props) {
         style={{
           left: `${posC}vw`,
           opacity: visC,
-          height: `${props.H}vh`,
-          width: `${props.W}vw`,
         }}
       >
         {infoC}
@@ -208,8 +214,8 @@ function Carousel(props) {
         style={{
           position: "fixed",
 
-          width: `${window.innerWidth - 0}px`,
-          height: `${window.innerHeight - 0}px`,
+          width: `${w - 0}px`,
+          height: `${h - 0}px`,
 
           // border: "3px solid red",
           transform: "translate(0%,-50%)",
@@ -220,8 +226,8 @@ function Carousel(props) {
         style={{
           position: "fixed",
           transform: "translate(0,-50%)",
-          width: `${window.innerWidth}px`,
-          height: `${window.innerHeight}px`,
+          width: `${w}px`,
+          height: `${h}px`,
         }}
       >
         <div>
