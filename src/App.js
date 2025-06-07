@@ -21,88 +21,46 @@ import NavbarMobile from "./components/Custom/navbar/NavbarMobile";
 
 function App() {
   const [navbar, setNavbar] = useState(false);
-  const [mobile, setMobile] = useState(window.innerWidth < 500);
-  useEffect(() => {}, []);
-  const dispId = uuidv4;
+  const [mobile, setMobile] = useState(window.innerWidth <= 768);
+  useEffect(() => {
+    const handleResize = () => setMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  const dispId = uuidv4();
   return (
     <div>
-      {mobile ? (
-        <div>
-          <div
-            style={{
-              width: "80%",
-              position: "absolute",
-              left: "50%",
-              top: "160px",
-              transform: "translate(-50%)",
-            }}
-          >
-            Mobile Version of this website is still under construction.
-          </div>
-          <div
-            style={{
-              width: "80%",
-              position: "absolute",
-              left: "50%",
-              top: "220px",
-              transform: "translate(-50%)",
-            }}
-          >
-            Please Use Our Desktop Mode.
-          </div>
-          <div
-            style={{
-              position: "fixed",
-
-              top: "10px",
-
-              backgroundImage: "url(./faviconLwong.png)",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              opacity: "5%",
-              width: "100vw",
-              height: "100vw",
-            }}
-          />
-        </div>
-      ) : (
-        <div>
-          <div>
-            <DataProvider>
-              {/* <ProjectsMini /> */}
-              <Router>
-                <Navbar dispId={dispId} setNavbar={setNavbar} mobile={mobile} />
-
-                <Switch>
-                  <Route path="/about">
-                    <About />
-                  </Route>
-                  <Route exact path={["/"]}>
-                    <Carousel />
-                  </Route>
-                  <Route path="/projects">
-                    <Receiver dispId={dispId} navbar={navbar} />
-                    {/* This has classes from projects */}
-                  </Route>
-                  <Route path="/Careers">
-                    <Careers />
-                  </Route>
-                  <Route path="/Contact">
-                    <Contact />
-                  </Route>
-                  {/* <Route path="/people">
+      <DataProvider>
+        <Router>
+          {mobile ? (
+            <NavbarMobile dispId={dispId} setNavbar={setNavbar} />
+          ) : (
+            <Navbar dispId={dispId} setNavbar={setNavbar} />
+          )}
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route exact path={["/"]}>
+              <Carousel />
+            </Route>
+            <Route path="/projects">
+              <Receiver dispId={dispId} navbar={navbar} mobile={mobile} />
+              {/* This has classes from projects */}
+            </Route>
+            <Route path="/Careers">
+              <Careers />
+            </Route>
+            <Route path="/Contact">
+              <Contact />
+            </Route>
+            {/* <Route path="/people">
               <People />
             </Route> */}
-                </Switch>
-              </Router>
-
-              {/* <Model></Model> */}
-            </DataProvider>
-          </div>
-          <SpinUp />
-        </div>
-      )}
+          </Switch>
+        </Router>
+      </DataProvider>
+      <SpinUp />
     </div>
   );
 }

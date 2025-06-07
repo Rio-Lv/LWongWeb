@@ -53,6 +53,7 @@ function Classes(props) {
                 className={classInfo.class}
                 dispId={id}
                 Class={classInfo}
+                mobile={props.mobile}
                 close={() => {
                   setClassInfo(null);
                 }}
