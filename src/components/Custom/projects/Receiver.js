@@ -135,7 +135,12 @@ function Receiver(props) {
   }, [object]);
   return (
     <div>
-      <Classes dispId={props.dispId} data={data} navbar={props.navbar} />
+      <Classes
+        dispId={props.dispId}
+        data={data}
+        navbar={props.navbar}
+        mobile={props.mobile}
+      />
     </div>
   );
 }

@@ -92,8 +92,8 @@ function ProjectsMini(props) {
                 </FadeIn>
               </ClassTitle>
             </Link>
-            <DisplayAreaFull>
-              <DisplayArea>
+            <DisplayAreaFull mobile={props.mobile}>
+              <DisplayArea mobile={props.mobile}>
                 <FadeIn delay={250}>
                   {createProjectBlocks(
                     arraySplit(props.Class.projects).leftArray
@@ -101,7 +101,7 @@ function ProjectsMini(props) {
                 </FadeIn>
               </DisplayArea>
               {/* <Line></Line> */}
-              <DisplayArea2>
+              <DisplayArea2 mobile={props.mobile}>
                 <FadeIn delay={250}>
                   {createProjectBlocks(
                     arraySplit(props.Class.projects).rightArray
@@ -134,21 +134,21 @@ const DisplayAreaFull = styled.div`
   margin-right: 4px;
   display: flex;
   background-color: #f2f2f2;
-  flex-direction: row;
+  flex-direction: ${(props) => (props.mobile ? "column" : "row")};
   ::-webkit-scrollbar {
     display: none;
   }
 `;
 
 const DisplayArea = styled.div`
-  width: ${window.innerWidth / 2 - 1.5}px;
+  width: ${(props) => (props.mobile ? "100%" : "calc(50% - 1.5px)")};
   height: 100%;
   padding-right: 4px;
   /* border-right: 3px solid white; */
 `;
 const DisplayArea2 = styled.div`
   right: 0;
-  width: ${window.innerWidth / 2 - 1.5}px;
+  width: ${(props) => (props.mobile ? "100%" : "calc(50% - 1.5px)")};
 
   height: 100%;
 `;
@@ -159,6 +159,7 @@ const Line = styled.div`
   height: 120%;
   border: 2px solid #f2f2f2;
   z-index: 1;
+  display: ${(props) => (props.mobile ? "none" : "block")};
 `;
 const ClassTitle = styled.div`
   position: fixed;
