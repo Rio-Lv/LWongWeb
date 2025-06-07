@@ -1,96 +1,115 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import { data } from "./data";
-import FadeIn from "react-fade-in/lib/FadeIn";
-import ClassBlock from "./ClassBlock";
-import NavBuffer from "./NavBuffer";
-import ProjectsMini from "../subProjects/ProjectsMini";
-import { Redirect, Route } from "react-router-dom";
+import FadeIn from "react-fade-in";
+import { Route, Redirect } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
-function Classes(props) {
+import ClassBlock from "./ClassBlock";
+import ProjectsMini from "../subProjects/ProjectsMini";
+
+/*
+ * ------------------------------------------------------------------
+ *  • keeps the title perfectly centred on every device
+ *  • stops any accidental horizontal scroll that was nudging it right
+ *  • locks the scroll-container id with useRef so it never changes
+ * ------------------------------------------------------------------
+ */
+
+function Classes({ data, navbar }) {
   const [classInfo, setClassInfo] = useState(null);
 
-  const id = uuidv4();
-  const createProjectBlocks = (classes) => {
-    // console.log(classes);
-    const projectList = [];
-    for (var i = 0; i < classes.length; i++) {
-      //console.log(classes[i]);
-      projectList.push(
-        <ClassBlock
-          navbar={props.navbar}
-          dispId={id}
-          key={uuidv4()}
-          index={i}
-          Class={classes[i]}
-          setClassInfo={setClassInfo}
-        />
-      );
-    }
-    return projectList;
-  };
+  /* stable id for the scroll container (persists across re-renders) */
+  const dispId = useRef(uuidv4()).current;
+
+  const makeBlocks = (classes) =>
+    classes.map((c, i) => (
+      <ClassBlock
+        key={uuidv4()}
+        index={i}
+        Class={c}
+        navbar={navbar}
+        dispId={dispId}
+        setClassInfo={setClassInfo}
+      />
+    ));
+
+  /* ----------------------- render ----------------------- */
+  if (!data) return null;
+
   return (
-    <div>
-      {props.data ? (
-        <DisplayArea id={id}>
-          <Route exact path={`/projects`}>
-            <FadeIn>
-              <Title>Project Types</Title>
-            </FadeIn>
-            {/* <NavBuffer pad={80} transition={0.3}></NavBuffer> */}
-            {/* <Title>Project Classes</Title> */}
-            <FadeIn delay={250}>
-              {createProjectBlocks(props.data.classes)}
-            </FadeIn>
+    <Wrapper>
+      <DisplayArea id={dispId}>
+        {/* ------------- list view ------------- */}
+        <Route exact path="/projects">
+          <FadeIn>
+            <Title>Project&nbsp;Types</Title>
+          </FadeIn>
+
+          <FadeIn delay={250}>{makeBlocks(data.classes)}</FadeIn>
+        </Route>
+
+        {/* ------------- redirect fallback ------------- */}
+        {classInfo === null && <Redirect to="/projects" />}
+
+        {/* ------------- mini project view ------------- */}
+        {classInfo && (
+          <Route path={`/projects/${classInfo.class}`}>
+            <ProjectsMini
+              routePath={`/projects/${classInfo.class}`}
+              navbar={navbar}
+              className={classInfo.class}
+              dispId={dispId}
+              Class={classInfo}
+              close={() => setClassInfo(null)}
+            />
           </Route>
-          {classInfo === null ? <Redirect to={"/projects"} /> : null}
-          {classInfo != null ? (
-            <Route path={`/projects/${classInfo.class}`}>
-              <ProjectsMini
-                routePath={`/projects/${classInfo.class}`}
-                navbar={props.navbar}
-                className={classInfo.class}
-                dispId={id}
-                Class={classInfo}
-                close={() => {
-                  setClassInfo(null);
-                }}
-              />
-            </Route>
-          ) : null}
-        </DisplayArea>
-      ) : (
-        <div></div>
-      )}
-    </div>
+        )}
+      </DisplayArea>
+    </Wrapper>
   );
 }
 
 export default Classes;
 
+/* ---------------------- styled ---------------------- */
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
 const DisplayArea = styled.div`
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   height: 100%;
 
-  overflow: scroll;
+  /* vertical scrolling only — prevents the “title drift” on mobile */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
   ::-webkit-scrollbar {
     display: none;
   }
 `;
+
+/* flex-box keeps the text centred no matter what */
 const Title = styled.div`
-  position: relative;
   height: 80px;
   width: 100%;
-  line-height: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-size: 30px;
-  color: #595959;
-  text-align: center;
   font-weight: 600;
+  color: #595959;
+
   background-color: #f2f2f2;
-  z-index: 3;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid #ffffff;
   cursor: default;
+  z-index: 3;
+
   transition: 0.4s ease;
 `;

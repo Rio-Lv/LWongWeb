@@ -133,11 +133,7 @@ function Receiver(props) {
       console.log("no Object");
     }
   }, [object]);
-  return (
-    <div>
-      <Classes dispId={props.dispId} data={data} navbar={props.navbar} />
-    </div>
-  );
+  return <Classes dispId={props.dispId} data={data} navbar={props.navbar} />;
 }
 
 export default Receiver;
