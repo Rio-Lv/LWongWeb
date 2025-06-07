@@ -1,45 +1,27 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
-import { photos } from "./photos";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 function PhotoGallery(props) {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
-
-  const openLightbox = useCallback((event, { photo, index }) => {
-    setCurrentImage(index);
-    setViewerIsOpen(true);
-  }, []);
-
-  const closeLightbox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(false);
+  const imageRenderer = ({ left, top, key, photo, margin, direction }) => {
+    const imgStyle = { margin, display: "block" };
+    if (direction === "column") {
+      imgStyle.position = "absolute";
+      imgStyle.left = left;
+      imgStyle.top = top;
+    }
+    return (
+      <PhotoView key={key} src={photo.src}>
+        <img {...photo} style={imgStyle} />
+      </PhotoView>
+    );
   };
 
   return (
-    <div>
-      <Gallery
-        photos={props.photos}
-        // direction={"column"}
-        onClick={openLightbox}
-        margin={5}
-      />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={props.photos.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </div>
+    <PhotoProvider>
+      <Gallery photos={props.photos} margin={5} renderImage={imageRenderer} />
+    </PhotoProvider>
   );
 }
 export default PhotoGallery;
