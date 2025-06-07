@@ -7,7 +7,7 @@ import NavBuffer from "../projects/NavBuffer";
 import Project from "./Project";
 import { Link, Redirect, Route } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-
+const isMobile = window.innerWidth <= 768; // mobile breakpoint (px)
 // this takes in data from Projects
 function ProjectsMini(props) {
   const [project, setProject] = useState(null);
@@ -37,24 +37,28 @@ function ProjectsMini(props) {
     return projectList;
   };
   const arraySplit = (array) => {
-    const leftArray = [];
-    const rightArray = [];
-    for (let i = 0; i < array.length; i++) {
-      if (i % 2 === 0) {
-        // even value
-        // console.log("even:" + i);
-        // console.log(array[i]);
-        leftArray.push(array[i]);
-      } else {
-        // odd value
-        // console.log("odd: " + i);
-        // console.log(array[i]);
-        rightArray.push(array[i]);
+    if (!isMobile) {
+      const leftArray = [];
+      const rightArray = [];
+      for (let i = 0; i < array.length; i++) {
+        if (i % 2 === 0) {
+          // even value
+          // console.log("even:" + i);
+          // console.log(array[i]);
+          leftArray.push(array[i]);
+        } else {
+          // odd value
+          // console.log("odd: " + i);
+          // console.log(array[i]);
+          rightArray.push(array[i]);
+        }
       }
+      // console.log(leftArray);
+      // console.log(rightArray);
+      return { leftArray, rightArray };
+    } else {
+      return { leftArray: array, rightArray: [] };
     }
-    // console.log(leftArray);
-    // console.log(rightArray);
-    return { leftArray, rightArray };
   };
 
   useEffect(() => {
@@ -101,13 +105,15 @@ function ProjectsMini(props) {
                 </FadeIn>
               </DisplayArea>
               {/* <Line></Line> */}
-              <DisplayArea2>
-                <FadeIn delay={250}>
-                  {createProjectBlocks(
-                    arraySplit(props.Class.projects).rightArray
-                  )}
-                </FadeIn>
-              </DisplayArea2>
+              {!isMobile && (
+                <DisplayArea2>
+                  <FadeIn delay={250}>
+                    {createProjectBlocks(
+                      arraySplit(props.Class.projects).rightArray
+                    )}
+                  </FadeIn>
+                </DisplayArea2>
+              )}
             </DisplayAreaFull>
           </div>
         </div>
@@ -141,14 +147,14 @@ const DisplayAreaFull = styled.div`
 `;
 
 const DisplayArea = styled.div`
-  width: ${window.innerWidth / 2 - 1.5}px;
+  width: 100%;
   height: 100%;
   padding-right: 4px;
   /* border-right: 3px solid white; */
 `;
 const DisplayArea2 = styled.div`
   right: 0;
-  width: ${window.innerWidth / 2 - 1.5}px;
+  width: 100%;
 
   height: 100%;
 `;
@@ -164,7 +170,7 @@ const ClassTitle = styled.div`
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 300px;
+  width: 100%;
   height: 70px;
   text-align: right;
   padding-right: 25px;

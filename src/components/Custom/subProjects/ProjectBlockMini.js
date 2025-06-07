@@ -10,7 +10,7 @@ const shade = "#F2F2F2"; // base background
 const shade3 = "#595959"; // text
 const shade2 = "white"; // line between left right
 
-const blockHeight = 400; // px height
+const blockHeight = 200; // px height
 
 function ProjectBlockMini(props) {
   const [project, setProject] = useState(props.project);
@@ -166,7 +166,7 @@ const Image = styled.div`
 
 const Block = styled.div`
   width: 100%;
-  height: ${400}px;
+  height: ${blockHeight}px;
 
   display: flex;
   flex-direction: row;
