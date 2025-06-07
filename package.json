@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@material-ui/core": "^4.12.3",
+        "@mui/material": "^5.15.12",
         "@react-three/fiber": "^7.0.9",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^13.4.0",

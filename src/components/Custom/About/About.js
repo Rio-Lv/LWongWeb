@@ -27,7 +27,7 @@ function About() {
 
         <MainImage
           style={{
-            backgroundImage: `url(${"./images/about1.jpg"})`,
+            backgroundImage: `url(${"https://dr3h7ptpe31k5.cloudfront.net/Site/Logo/5605/HS-workspace%20hero.jpeg"})`,
           }}
         />
         <InfoTitle>ESTABLISHMENT</InfoTitle>
@@ -46,7 +46,7 @@ function About() {
         <div style={{ position: "relative", width: "100%", height: "420px" }}>
           <SecondImage
             style={{
-              backgroundImage: `url(${"./images/about2.jpg"})`,
+              backgroundImage: `url(${"https://dr3h7ptpe31k5.cloudfront.net/Site/Logo/5605/HS-workspace%20hero.jpeg"})`,
             }}
           />
         </div>

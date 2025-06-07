@@ -47,7 +47,7 @@ function Navbar(props) {
       tabs.push(
         <Link
           key={tab.name}
-          to={`/${tab.name}`}
+          to={`/${tab.name.toLowerCase()}`}
           style={{ textDecoration: "none", userSelect: "none" }}
         >
           <Tab
