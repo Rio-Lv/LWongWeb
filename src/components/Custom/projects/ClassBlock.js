@@ -1,209 +1,217 @@
+/* ClassBlock.jsx
+ * -------------------------------------------------------------
+ * Fully-self-contained component with:
+ *  • Desktop (≥ 769 px)   → 400 px tall, 30 vw info / 70 vw image
+ *  • Mobile  (≤ 768 px)   → 200 px tall, 40 vw info / 60 vw image
+ *  • Text wraps automatically on mobile
+ *  • Click handler restores previous behaviour and is null-safe
+ *  • Optional-chaining protects against missing photo arrays
+ * ------------------------------------------------------------- */
+
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import FadeIn from "react-fade-in";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
-const timer = 3;
-const timer2 = 1;
-const zoom = 1.1;
-const shade = "#ffffff"; // base background
-const shade3 = "#595959"; // text
-const shade2 = "white"; // line between left right
+/* ---------------- constants ---------------- */
+const DESKTOP_BLOCK_H = 400;  // px
+const MOBILE_BLOCK_H  = 150;  // px
 
-const shade4 = shade2; // line between top bot
-const blockHeight = 400; // px height
-const infoWidth = 20; //vw use these to divi it up
-const imageWidth = 80; // vw
+const DESKTOP_INFO_W  = 30;   // vw
+const MOBILE_INFO_W   = 40;   // vw  → image gets 60 vw
+
+const shade  = "#ffffff";
+const shade2 = "white";
+const shade3 = "#595959";
+const shade4 = shade2;
+
+const timer  = 3;
+const timer2 = 1;
+const zoom   = 1.1;
 const shiftVal = 10;
 
+const BP = 768;               // mobile breakpoint (px)
+/* ------------------------------------------- */
+
 function ClassBlock(props) {
+  /* ----------- viewport detection ----------- */
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= BP);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= BP);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  /* derived sizes */
+  const blockH = isMobile ? MOBILE_BLOCK_H : DESKTOP_BLOCK_H;
+  const infoW  = isMobile ? MOBILE_INFO_W  : DESKTOP_INFO_W;
+  const imageW = 100 - infoW;          // 70 or 60
+
+  /* ----------- existing logic --------------- */
   const [even, setEven] = useState(true);
   const [infoHover, setInfoHover] = useState(false);
-
   const [shift, setShift] = useState(0);
-  //scroll to top
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
-  useEffect(() => {
-    if (props.index % 2 === 0 || props.index === 0) {
-      setEven(true);
-    } else {
-      setEven(false);
-    }
-  }, [props.index]);
 
-  const makeProjectList = () => {
-    const list = [];
+  useEffect(() => window.scroll(0, 0), []);
+  useEffect(
+    () => setEven(props.index % 2 === 0 || props.index === 0),
+    [props.index]
+  );
 
-    if (props.Class.projects) {
-      props.Class.projects.forEach((project) => {
-        // console.log(project.name);
-        list.push(<ListItem key={uuidv4()}>{project.name}</ListItem>);
-      });
-    }
-    return list;
-  };
+  const makeProjectList = () =>
+    props.Class.projects?.map(p => (
+      <ListItem key={uuidv4()}>{p.name}</ListItem>
+    )) ?? [];
+
+  /* nothing to render if no projects */
+  if (!props.Class.projects?.length) return null;
+
+  /* ----------- render ----------------------- */
   return (
-    <div>
-      {props.Class.projects.length ? (
-        <div>
-          {!even ? (
-            // images on the right
-            <Link to={`/projects/${props.Class.class}`}>
-              <Block
-                onClick={() => {
-                  props.setClassInfo(props.Class);
-                  // props.disp.scrollTop = 0;
-                  document.getElementById(props.dispId).scrollTop = 0;
-                }}
-              >
-                <Info
-                  style={{ width: `${infoWidth + shift}vw` }}
-                  onMouseEnter={() => {
-                    setInfoHover(true);
-                    setShift(shiftVal);
-                  }}
-                  onMouseLeave={() => {
-                    setInfoHover(false);
-                    setShift(0);
-                  }}
-                >
-                  <Text style={{ opacity: infoHover ? 0 : 1 }}>
-                    {props.Class.class}
-                  </Text>
-                  {infoHover ? (
-                    <ListBox
-                      style={{
-                        height: `${
-                          (blockHeight * makeProjectList().length) / 10
-                        }px`,
-                      }}
-                    >
-                      <FadeIn delay={150}>{makeProjectList()}</FadeIn>
-                    </ListBox>
-                  ) : null}
-                </Info>
-                <ImageContainer style={{ borderLeft: `3px solid ${shade2}` }}>
-                  <Image
-                    style={{
-                      backgroundImage: `url(${props.Class.projects[0].photos[0].src})`,
-                    }}
-                  ></Image>
-                </ImageContainer>
-              </Block>
-            </Link>
-          ) : (
-            // images on the left
-            <Link to={`/projects/${props.Class.class}`}>
-              <Block
-                onClick={() => {
-                  // props.disp.scrollTop = 0;
-                  props.setClassInfo(props.Class);
-                }}
-              >
-                <ImageContainer style={{ borderRight: `3px solid ${shade2}` }}>
-                  <Image
-                    style={{
-                      backgroundImage: `url(${props.Class.projects[0].photos[0].src})`,
-                    }}
-                  ></Image>
-                </ImageContainer>
+    <Link to={`/projects/${props.Class.class}`}>
+      <Block
+        height={blockH}
+        onClick={() => {
+          /* set class for parent */
+          props.setClassInfo?.(props.Class);
 
-                <Info
-                  style={{ width: `${infoWidth + shift}vw` }}
-                  onMouseEnter={() => {
-                    setInfoHover(true);
-                    setShift(shiftVal);
-                  }}
-                  onMouseLeave={() => {
-                    setInfoHover(false);
-                    setShift(0);
-                  }}
-                >
-                  <Text style={{ opacity: infoHover ? 0 : 1 }}>
-                    {props.Class.class}
-                  </Text>
-                  {infoHover ? (
-                    <ListBox
-                      style={{
-                        height: `${
-                          (blockHeight * makeProjectList().length) / 10
-                        }px`,
-                      }}
-                    >
-                      <FadeIn delay={150}>{makeProjectList()}</FadeIn>
-                    </ListBox>
-                  ) : null}
-                </Info>
-              </Block>
-            </Link>
-          )}
-        </div>
-      ) : null}
-    </div>
+          /* scroll chosen container to top, if present */
+          if (props.dispId) {
+            const el = document.getElementById(props.dispId);
+            if (el) el.scrollTop = 0;
+          }
+        }}
+      >
+        {/* The info / image order flips depending on “even” */}
+        {!even && (
+          <Info
+            infoWidth={infoW + shift}
+            onMouseEnter={() => {
+              setInfoHover(true);
+              setShift(shiftVal);
+            }}
+            onMouseLeave={() => {
+              setInfoHover(false);
+              setShift(0);
+            }}
+          >
+            <Text $mobile={isMobile} style={{ opacity: infoHover ? 0 : 1 }}>
+              {props.Class.class}
+            </Text>
+            {infoHover && (
+              <ListBox
+                style={{
+                  height: `${(blockH * makeProjectList().length) / 10}px`,
+                }}
+              >
+                <FadeIn delay={150}>{makeProjectList()}</FadeIn>
+              </ListBox>
+            )}
+          </Info>
+        )}
+
+        <ImageContainer
+          height={blockH}
+          imgWidth={imageW}
+          style={
+            !even
+              ? { borderLeft: `3px solid ${shade2}` }
+              : { borderRight: `3px solid ${shade2}` }
+          }
+        >
+          <Image
+            style={{
+              backgroundImage: `url(${
+                props.Class.projects?.[0]?.photos?.[0]?.src || ""
+              })`,
+            }}
+          />
+        </ImageContainer>
+
+        {even && (
+          <Info
+            infoWidth={infoW + shift}
+            onMouseEnter={() => {
+              setInfoHover(true);
+              setShift(shiftVal);
+            }}
+            onMouseLeave={() => {
+              setInfoHover(false);
+              setShift(0);
+            }}
+          >
+            <Text $mobile={isMobile} style={{ opacity: infoHover ? 0 : 1 }}>
+              {props.Class.class}
+            </Text>
+            {infoHover && (
+              <ListBox
+                style={{
+                  height: `${(blockH * makeProjectList().length) / 10}px`,
+                }}
+              >
+                <FadeIn delay={150}>{makeProjectList()}</FadeIn>
+              </ListBox>
+            )}
+          </Info>
+        )}
+      </Block>
+    </Link>
   );
 }
 
-// change to animate info up and fade in the rest simultaneously
-
 export default ClassBlock;
 
+/* --------------- styled components --------------- */
 const Info = styled.div`
   position: relative;
-  display: block;
   height: 100%;
-
-  /* border: 1px solid black; */
   background-color: ${shade};
   text-align: center;
   transition: ${timer2}s;
-
-  margin: auto;
+  width: ${({ infoWidth }) => infoWidth}vw;
 `;
-const Text = styled.div`
-  line-height: 3vh;
-  font-weight: 600;
-  font-size: 20px;
-  position: absolute;
-  letter-spacing: 2px;
 
-  color: ${shade3};
+const Text = styled.div`
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: ${0.5}s;
-  white-space: nowrap;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 3vh;
+  letter-spacing: 2px;
+  color: ${shade3};
+  transition: 0.5s;
+  white-space: ${({ $mobile }) => ($mobile ? "normal" : "nowrap")};
 `;
+
 const ListBox = styled.div`
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  transition: 0.2s;
-
   position: absolute;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: ${timer2}s;
-  /* overflow: scroll; */
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
+
 const ListItem = styled.div`
   font-size: 18px;
   line-height: 4vh;
   font-weight: 400;
   color: ${shade3};
-  white-space: nowrap;
+  white-space: normal;
 `;
-const ImageContainer = styled.div`
-  height: ${blockHeight}px;
-  width: ${imageWidth}vw;
 
-  box-sizing: border-box;
+const ImageContainer = styled.div`
+  height: ${({ height }) => height}px;
+  width:  ${({ imgWidth }) => imgWidth}vw;
   overflow: hidden;
+  box-sizing: border-box;
 `;
+
 const Image = styled.div`
   height: 100%;
   width: 100%;
@@ -218,10 +226,8 @@ const Image = styled.div`
 
 const Block = styled.div`
   width: 100%;
-  height: ${400}px;
-  border: 0px solid black;
+  height: ${({ height }) => height}px;
   display: flex;
-  flex-direction: row;
   border-bottom: 3px solid ${shade4};
   cursor: pointer;
 `;
