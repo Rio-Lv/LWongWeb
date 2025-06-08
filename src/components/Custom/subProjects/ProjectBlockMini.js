@@ -20,7 +20,7 @@ function ProjectBlockMini(props) {
   const [even, setEven] = useState(true);
   const [infoHover, setInfoHover] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= BP);
-  const blockHeight = isMobile ? 150 : 400; // px height
+  const blockHeight = isMobile ? 150 : 200; // px height
 
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth <= BP);
