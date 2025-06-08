@@ -2,11 +2,22 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import FadeIn from "react-fade-in";
 
-const width = window.innerWidth;
-const height = window.innerHeight;
+// helper to get current window dimensions
+const getWindowSize = () => ({
+  width: window.innerWidth,
+  height: window.innerHeight,
+});
 function Comp(props) {
   const [loaded, setLoaded] = useState();
   const [zoom, setZoom] = useState(false); // percent
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  // update window dimensions on resize so mobile orientation changes are handled
+  useEffect(() => {
+    const handleResize = () => setWindowSize(getWindowSize());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const timer = 8000;
@@ -17,6 +28,15 @@ function Comp(props) {
       setZoom(boo);
     }, timer);
   }, []);
+
+  const isPortrait = windowSize.height > windowSize.width;
+  const bgSize = isPortrait
+    ? zoom
+      ? "auto 130%"
+      : "auto 110%"
+    : zoom
+    ? "130%"
+    : "110%";
 
   return (
     <div
@@ -35,9 +55,11 @@ function Comp(props) {
       <div>
         <FadeIn>
           <Image
+            w={windowSize.width}
+            h={windowSize.height}
             style={{
               backgroundImage: `url(${props.url})`,
-              backgroundSize: zoom ? "130%" : "110%",
+              backgroundSize: bgSize,
               backgroundRepeat: "no-repeat",
             }}
           />
@@ -45,15 +67,15 @@ function Comp(props) {
             style={{
               position: "fixed",
 
-              width: `${width - 0}px`,
-              height: `${height - 0}px`,
+              width: `${windowSize.width}px`,
+              height: `${windowSize.height}px`,
 
               // border: "3px solid red",
               transform: "translate(-50%,-50%)",
             }}
           >
             <BigImageInfoBox>
-              <BigImageTitle>{props.text}</BigImageTitle>
+              <BigImageTitle w={windowSize.width}>{props.text}</BigImageTitle>
               {/* <BigImageInfo>click to view more projects</BigImageInfo> */}
             </BigImageInfoBox>
           </div>
@@ -72,15 +94,15 @@ const Image = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   /* border: 3px solid red; */
-  width: ${width}px;
-  height: ${height}px;
+  width: ${(props) => props.w}px;
+  height: ${(props) => props.h}px;
 
   background-color: "black";
   background-position: center;
   transition: 9s ease;
 `;
 const BigImageTitle = styled.div`
-  width: ${width}px;
+  width: ${(props) => props.w}px;
   text-align: center;
   position: absolute;
   /* left: 100px; */
@@ -92,7 +114,7 @@ const BigImageTitle = styled.div`
   transition: 0.3s;
 `;
 const BigImageInfo = styled.div`
-  width: ${width}px;
+  width: ${(props) => props.w}px;
   text-align: center;
   position: absolute;
   /* left: 100px; */
