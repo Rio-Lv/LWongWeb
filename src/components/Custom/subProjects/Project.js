@@ -264,13 +264,13 @@ const ColumnImage = styled.div`
 const GalleryArea = styled.div`
   position: relative;
   width: 100%;
-  max-height: 80vh;
-  overflow-y: auto;
-  transform: scale(1.244) translate(0, 140px);
+  height: auto;
+  transform: none;
+  overflow: visible;
   @media (max-width: 768px) {
-    max-height: none;
-    overflow: visible;
+    height: auto;
     transform: none;
+    overflow: visible;
   }
 `;
 const GalleryAreaBox = styled.div`
