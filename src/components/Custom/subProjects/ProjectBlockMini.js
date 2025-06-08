@@ -14,13 +14,13 @@ const DESKTOP_INFO_W = 30; // percentage
 const MOBILE_INFO_W = 40; // percentage
 const shiftVal = 10; // width shift on hover
 const BP = 768; // mobile breakpoint
-const blockHeight = 150; // px height
 
 function ProjectBlockMini(props) {
   const [project, setProject] = useState(props.project);
   const [even, setEven] = useState(true);
   const [infoHover, setInfoHover] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= BP);
+  const blockHeight = isMobile ? 150 : 400; // px height
 
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth <= BP);
@@ -73,13 +73,13 @@ function ProjectBlockMini(props) {
     >
       {!even ? (
         // images on the right
-        <Block>
+        <Block blockHeight={blockHeight}>
           <Info infoWidth={infoWidth}>
             <Text $mobile={isMobile} style={{ opacity: infoHover ? 0 : 1 }}>
               {project.name}
             </Text>
             {infoHover ? (
-              <BriefBox>
+              <BriefBox blockHeight={blockHeight}>
                 <FadeIn delay={150}>{makeDivList(project.listInfo)}</FadeIn>
               </BriefBox>
             ) : null}
@@ -89,6 +89,7 @@ function ProjectBlockMini(props) {
             style={{
               borderLeft: `0px solid ${shade2}`,
             }}
+            blockHeight={blockHeight}
           >
             <Image
               style={{
@@ -99,12 +100,13 @@ function ProjectBlockMini(props) {
         </Block>
       ) : (
         // images on the left
-        <Block>
+        <Block blockHeight={blockHeight}>
           <ImageContainer
             imgWidth={imageWidth}
             style={{
               borderRight: `0px solid ${shade2}`,
             }}
+            blockHeight={blockHeight}
           >
             <Image
               style={{
@@ -124,7 +126,7 @@ function ProjectBlockMini(props) {
               {project.name}
             </Text>
             {infoHover ? (
-              <BriefBox>
+              <BriefBox blockHeight={blockHeight}>
                 <FadeIn delay={150}>{makeDivList(project.listInfo)}</FadeIn>
               </BriefBox>
             ) : null}
@@ -157,7 +159,7 @@ const BriefBox = styled.div`
 
   position: absolute;
 
-  height: ${blockHeight / 3}px;
+  height: ${({ blockHeight }) => blockHeight / 3}px;
 
   top: 50%;
   left: 50%;
@@ -168,7 +170,7 @@ const BriefBox = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  height: ${blockHeight}px;
+  height: ${({ blockHeight }) => blockHeight}px;
   width: ${({ imgWidth }) => imgWidth}%;
 
   overflow: hidden;
@@ -186,7 +188,7 @@ const Image = styled.div`
 
 const Block = styled.div`
   width: 100%;
-  height: ${blockHeight}px;
+  height: ${({ blockHeight }) => blockHeight}px;
 
   display: flex;
   flex-direction: row;
