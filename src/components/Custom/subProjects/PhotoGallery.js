@@ -18,7 +18,7 @@ function PhotoGallery(props) {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#ffffff" }}>
       <Gallery
         photos={props.photos}
         // direction={"column"}
