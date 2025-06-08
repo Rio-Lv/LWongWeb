@@ -10,12 +10,23 @@ const shade = "#F2F2F2"; // base background
 const shade3 = "#595959"; // text
 const shade2 = "white"; // line between left right
 
+const DESKTOP_INFO_W = 30; // percentage
+const MOBILE_INFO_W = 40; // percentage
+const shiftVal = 10; // width shift on hover
+const BP = 768; // mobile breakpoint
 const blockHeight = 200; // px height
 
 function ProjectBlockMini(props) {
   const [project, setProject] = useState(props.project);
   const [even, setEven] = useState(true);
   const [infoHover, setInfoHover] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= BP);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= BP);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   // scroll to top
   useEffect(() => {
@@ -41,6 +52,11 @@ function ProjectBlockMini(props) {
     return array;
   };
 
+  const baseInfoW = isMobile ? MOBILE_INFO_W : DESKTOP_INFO_W;
+  const baseImageW = 100 - baseInfoW;
+  const infoWidth = infoHover ? baseInfoW + shiftVal : baseInfoW;
+  const imageWidth = 100 - infoWidth;
+
   return (
     <div
       onClick={() => {
@@ -58,8 +74,10 @@ function ProjectBlockMini(props) {
       {!even ? (
         // images on the right
         <Block>
-          <Info style={{ width: infoHover ? `30%` : `50%` }}>
-            <Text style={{ opacity: infoHover ? 0 : 1 }}>{project.name}</Text>
+          <Info infoWidth={infoWidth}>
+            <Text $mobile={isMobile} style={{ opacity: infoHover ? 0 : 1 }}>
+              {project.name}
+            </Text>
             {infoHover ? (
               <BriefBox>
                 <FadeIn delay={150}>{makeDivList(project.listInfo)}</FadeIn>
@@ -67,9 +85,9 @@ function ProjectBlockMini(props) {
             ) : null}
           </Info>
           <ImageContainer
+            imgWidth={imageWidth}
             style={{
               borderLeft: `0px solid ${shade2}`,
-              width: infoHover ? `70%` : `50%`,
             }}
           >
             <Image
@@ -83,9 +101,9 @@ function ProjectBlockMini(props) {
         // images on the left
         <Block>
           <ImageContainer
+            imgWidth={imageWidth}
             style={{
               borderRight: `0px solid ${shade2}`,
-              width: infoHover ? `70%` : `50%`,
             }}
           >
             <Image
@@ -95,8 +113,9 @@ function ProjectBlockMini(props) {
             ></Image>
           </ImageContainer>
 
-          <Info style={{ width: infoHover ? `30%` : `50%` }}>
+          <Info infoWidth={infoWidth}>
             <Text
+              $mobile={isMobile}
               style={{
                 opacity: infoHover ? 0 : 1,
                 backgroundColor: infoHover ? "white" : `white`,
@@ -127,7 +146,7 @@ const Text = styled.div`
   position: absolute;
   color: ${shade3};
   top: 50%;
-  white-space: nowrap;
+  white-space: ${({ $mobile }) => ($mobile ? "normal" : "nowrap")};
   word-spacing: 3px;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -150,6 +169,7 @@ const BriefBox = styled.div`
 
 const ImageContainer = styled.div`
   height: ${blockHeight}px;
+  width: ${({ imgWidth }) => imgWidth}%;
 
   overflow: hidden;
   transition-delay: 1s;
@@ -180,6 +200,8 @@ const Info = styled.div`
   position: relative;
   display: block;
   height: 100%;
+
+  width: ${({ infoWidth }) => infoWidth}%;
 
   /* border: 1px solid black; */
   background-color: white;
