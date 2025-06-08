@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { data } from "./data";
 import { Link } from "react-router-dom";
@@ -9,6 +9,9 @@ function Navbar(props) {
   const [lock, setLock] = useState(false);
   const [mouseOnNav, setMouseOnNav] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const menuRef = useRef(null);
+  const hamburgerRef = useRef(null);
   useEffect(() => {
     setTimeout(() => {
       setHide(false);
@@ -47,10 +50,26 @@ function Navbar(props) {
       if (window.innerWidth > 768) {
         setMenuOpen(false);
       }
+      setIsMobile(window.innerWidth <= 768);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        menuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(e.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
   const createBar = () => {
     const tabs = [];
     data.tabs.forEach((tab) => {
@@ -93,7 +112,7 @@ function Navbar(props) {
           transform:
             hide && !mouseOnNav ? "translate(0,-70px)" : "translate(0px)",
           height: hide ? "0" : "70px",
-          backgroundColor: mouseOnNav ? "#0D0D0D" : "white",
+          backgroundColor: isMobile || mouseOnNav ? "#0D0D0D" : "white",
         }}
       >
 
@@ -105,9 +124,10 @@ function Navbar(props) {
               style={{
                 height: "45px",
                 transition: ".2s ease",
-                filter: !mouseOnNav
-                  ? "invert(0) grayscale(0) contrast(1.3) brightness(0)"
-                  : "invert(1) grayscale(1) contrast(1) brightness(5)",
+                filter:
+                  !mouseOnNav && !isMobile
+                    ? "invert(0) grayscale(0) contrast(1.3) brightness(0)"
+                    : "invert(1) grayscale(1) contrast(1) brightness(5)",
               }}
             />
           </LogoLink>
@@ -124,15 +144,16 @@ function Navbar(props) {
         <Hamburger
           sx
           style={{
-            color: !mouseOnNav ? "black" : "white",
+            color: !mouseOnNav && !isMobile ? "black" : "white",
           }}
           onClick={() => {
             setMenuOpen(!menuOpen);
           }}
+          ref={hamburgerRef}
         >
           &#9776;
         </Hamburger>
-        <Bar open={menuOpen}>{createBar()}</Bar>
+        <Bar ref={menuRef} open={menuOpen}>{createBar()}</Bar>
       </Nav>
       <NavGradientTop />
       <NavGradientBottom />
@@ -166,6 +187,7 @@ const Title = styled.div`
   margin-left: 2px;
   @media (max-width: 768px) {
     margin-left: 0;
+    color: ${color0};
   }
 `;
 const Back = styled.div`
@@ -183,6 +205,9 @@ const LogoLink = styled(Link)`
 const TitleLink = styled(Link)`
   text-decoration: none;
   color: black;
+  @media (max-width: 768px) {
+    color: ${color0};
+  }
 `;
 
 const Brand = styled.div`
@@ -211,12 +236,13 @@ const Bar = styled.div`
   @media (max-width: 768px) {
     position: absolute;
     top: 70px;
-    right: 0;
+    left: 0;
     flex-direction: column;
     background-color: #0d0d0d;
-    width: 150px;
+    width: 100%;
     padding: 10px 0;
     margin-right: 0;
+    align-items: center;
     display: ${(props) => (props.open ? 'flex' : 'none')};
   }
 `;
@@ -236,6 +262,8 @@ const Tab = styled.div`
     margin-right: 0;
     color: ${color0};
     padding: 5px 20px;
+    width: 100%;
+    text-align: center;
   }
 `;
 
