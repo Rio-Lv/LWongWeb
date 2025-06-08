@@ -124,7 +124,7 @@ function Navbar(props) {
         <Hamburger
           sx
           style={{
-            color: "white",
+            color: !mouseOnNav ? "black" : "white",
           }}
           onClick={() => {
             setMenuOpen(!menuOpen);
