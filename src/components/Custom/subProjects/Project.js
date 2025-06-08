@@ -98,10 +98,13 @@ function Project(props) {
         </FadeIn>
         <GalleryAreaBack>
           <GalleryTitle>GALLERY</GalleryTitle>
+
           <GalleryArea>
-            <GalleryAreaBox>
-              <PhotoGallery photos={project.photos} />
-            </GalleryAreaBox>
+            {/* <GalleryAreaBox> */}
+              <GalleryBlock id={props.dispId}>
+                <PhotoGallery photos={project.photos} />
+              </GalleryBlock>
+            {/* </GalleryAreaBox> */}
           </GalleryArea>
         </GalleryAreaBack>
         <div style={{ height: "0px" }}></div>
@@ -284,13 +287,20 @@ const GalleryAreaBox = styled.div`
   }
 `;
 const GalleryAreaBack = styled.div`
-  width: 100%;
-
+  width: 100vw;
+  height: 1500px;
   position: relative;
-  background-color: #ffffff;
+  padding-top: 50px;
+  background-color: white;
   overflow: visible;
   text-align: center;
 `;
+const GalleryBlock = styled.div`
+  max-height: 1500px;
+  width: 100%;
+  overflow-y: auto;
+`;
+
 const GalleryTitle = styled.div`
   color: #595959;
   font-size: 24px;
