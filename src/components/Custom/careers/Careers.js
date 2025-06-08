@@ -21,7 +21,8 @@ function Careers() {
             backgroundImage: `url(${"https://am3pap002files.storage.live.com/y4mFDElAylusXCkDj__eLuuTJFwQ_WCm411aOOfSW75JqS2f56zt9ewKjJ3CcS6iTDss92DPtE1OtHpBHQgudq-usfwSmgxXADY_mKklHbd2ZW-JhNKPQSZDQLQZf8jdsGSYD8B7HI899mlhYUhfUhoPL50Vv6ooI7Pkn4wpXJo6DcaMPJ9L4-Rn1IuVYzrPbu6?width=3840&height=2160&cropmode=none"})`,
           }}
         ></Box>
-        <Title>Availabe Positions</Title>
+        <Title>No current position available</Title>{/*
+
         <Column>
           <FadeIn delay={250}>
             <JobBlock
@@ -43,6 +44,7 @@ function Careers() {
             <JobBlock title={"Library Dog"} requirements={"Degree in fun"} />
           </FadeIn>
         </Column>
+*/}
       </FadeIn>
     </div>
   );
