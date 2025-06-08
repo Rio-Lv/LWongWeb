@@ -38,28 +38,7 @@ function ProjectsMini(props) {
     return projectList;
   };
   const arraySplit = (array) => {
-    if (!isMobile) {
-      const leftArray = [];
-      const rightArray = [];
-      for (let i = 0; i < array.length; i++) {
-        if (i % 2 === 0) {
-          // even value
-          // console.log("even:" + i);
-          // console.log(array[i]);
-          leftArray.push(array[i]);
-        } else {
-          // odd value
-          // console.log("odd: " + i);
-          // console.log(array[i]);
-          rightArray.push(array[i]);
-        }
-      }
-      // console.log(leftArray);
-      // console.log(rightArray);
-      return { leftArray, rightArray };
-    } else {
-      return { leftArray: array, rightArray: [] };
-    }
+    return { leftArray: array, rightArray: [] };
   };
 
   useEffect(() => {
@@ -106,15 +85,6 @@ function ProjectsMini(props) {
                 </FadeIn>
               </DisplayArea>
               {/* <Line></Line> */}
-              {!isMobile && (
-                <DisplayArea2>
-                  <FadeIn delay={250}>
-                    {createProjectBlocks(
-                      arraySplit(props.Class.projects).rightArray
-                    )}
-                  </FadeIn>
-                </DisplayArea2>
-              )}
             </DisplayAreaFull>
           </div>
         </div>
@@ -141,7 +111,7 @@ const DisplayAreaFull = styled.div`
   margin-right: 4px;
   display: flex;
   background-color: #f2f2f2;
-  flex-direction: row;
+  flex-direction: column;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -152,12 +122,6 @@ const DisplayArea = styled.div`
   height: 100%;
   padding-right: 4px;
   /* border-right: 3px solid white; */
-`;
-const DisplayArea2 = styled.div`
-  right: 0;
-  width: 100%;
-
-  height: 100%;
 `;
 const Line = styled.div`
   position: fixed;
