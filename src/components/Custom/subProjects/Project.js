@@ -140,6 +140,11 @@ const BigImageTitle = styled.div`
   opacity: 80%;
   font-weight: 600;
   transition: 0.3s;
+  @media (max-width: 768px) {
+    left: 20px;
+    bottom: 80px;
+    font-size: 24px;
+  }
 `;
 const BigImageInfo = styled.div`
   position: absolute;
@@ -150,6 +155,11 @@ const BigImageInfo = styled.div`
   opacity: 80%;
   font-weight: 400;
   transition: 0.3s;
+  @media (max-width: 768px) {
+    left: 20px;
+    bottom: 40px;
+    font-size: 18px;
+  }
 `;
 
 const BigImageInfoBox = styled.div`
@@ -165,6 +175,9 @@ const BigImageInfoBox = styled.div`
   &:hover ${BigImageTitle} {
     opacity: 100%;
   }
+  @media (max-width: 768px) {
+    height: 140px;
+  }
 `;
 const RowInfo = styled.div`
   position: relative;
@@ -173,6 +186,11 @@ const RowInfo = styled.div`
   color: #595959;
   background-color: #ffffff;
   overflow: scroll;
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 40px 0;
+    overflow: visible;
+  }
 `;
 const CenterText = styled.div`
   position: absolute;
@@ -185,16 +203,31 @@ const CenterText = styled.div`
   font-weight: 400;
 
   transform: translate(-50%, -50%);
+  @media (max-width: 768px) {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+    width: 90%;
+    margin: auto;
+    text-align: left;
+  }
 `;
 const CenterTextTitle = styled.div`
   font-weight: 600;
   margin-bottom: 30px;
   font-size: 24px;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 const Row = styled.div`
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const ColumnInfo = styled.div`
   position: relative;
@@ -203,6 +236,12 @@ const ColumnInfo = styled.div`
   background-color: #f2f2f2;
   color: #595959;
   overflow: scroll;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    padding: 40px 0;
+    overflow: visible;
+  }
 `;
 const ColumnImage = styled.div`
   position: relative;
@@ -216,6 +255,11 @@ const ColumnImage = styled.div`
   &:hover {
     transform: scale(1);
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 400px;
+    transform: scale(1);
+  }
 `;
 const GalleryArea = styled.div`
   position: relative;
@@ -223,6 +267,10 @@ const GalleryArea = styled.div`
   height: 1500px;
 
   transform: scale(1.244) translate(0, 140px);
+  @media (max-width: 768px) {
+    height: auto;
+    transform: none;
+  }
 `;
 const GalleryAreaBox = styled.div`
   position: absolute;
@@ -230,6 +278,9 @@ const GalleryAreaBox = styled.div`
   left: 50%;
   transform: translate(-50%, 0);
   background-color: #ffffff;
+  @media (max-width: 768px) {
+    width: 95%;
+  }
 `;
 const GalleryAreaBack = styled.div`
   width: 100%;
@@ -245,4 +296,8 @@ const GalleryTitle = styled.div`
   margin-top: 50px;
   margin-bottom: 30px;
   font-weight: 600;
+  @media (max-width: 768px) {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
 `;
