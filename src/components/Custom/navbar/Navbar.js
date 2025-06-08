@@ -77,7 +77,7 @@ function Navbar(props) {
         <Link
           key={tab.name}
           to={`/${tab.name}`}
-          style={{ textDecoration: "none", userSelect: "none" }}
+          style={{ textDecoration: "none", userSelect: "none" , width: isMobile ? "100%" : "100%", display: "flex", justifyContent: "center" }}
         >
           <Tab
             onMouseOver={() => {
@@ -242,7 +242,7 @@ const Bar = styled.div`
     width: 100%;
     padding: 10px 0;
     margin-right: 0;
-    align-items: center;
+    align-items: stretch; 
     display: ${(props) => (props.open ? 'flex' : 'none')};
   }
 `;
@@ -254,6 +254,8 @@ const Tab = styled.div`
   transition: 0.1s ease;
   fill: transparent;
   background-color: transparent;
+  /* border: 3px solid red; */
+  
   &:hover {
     color: white;
   }
@@ -262,7 +264,8 @@ const Tab = styled.div`
     margin-right: 0;
     color: ${color0};
     padding: 5px 20px;
-    width: 100%;
+    width: fit-content;
+    
     text-align: center;
   }
 `;
