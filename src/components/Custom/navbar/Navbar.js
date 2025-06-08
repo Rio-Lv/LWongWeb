@@ -96,29 +96,32 @@ function Navbar(props) {
           backgroundColor: mouseOnNav ? "#0D0D0D" : "white",
         }}
       >
-        <HomeLink to={"/"}>
-          <div>
-            <img
-              src={logo}
-              alt=""
-              style={{
-                height: "45px",
-                position: "absolute",
-                left: "15px",
-                top: hide ? "2px" : "13px",
-                transition: ".2s ease",
 
-                filter: !mouseOnNav
-                  ? "invert(0) grayscale(0) contrast(1.3) brightness(0)"
-                  : "invert(1) grayscale(1) contrast(1) brightness(5)",
-              }}
-            />
-            <Title style={{ userSelect: "none" }}>
-              {data.title.name}
-              {/* <SubTitle> /about</SubTitle> */}
-            </Title>
-          </div>
-        </HomeLink>
+        <LogoLink to={"/"}>
+          <img
+            src={logo}
+            alt=""
+            style={{
+              height: "45px",
+              position: "absolute",
+              left: "15px",
+              top: hide ? "2px" : "13px",
+              transition: ".2s ease",
+
+              filter: !mouseOnNav
+                ? "invert(0) grayscale(0) contrast(1.3) brightness(0)"
+                : "invert(1) grayscale(1) contrast(1) brightness(5)",
+            }}
+          />
+        </LogoLink>
+
+        <TitleLink to={"/"}>
+          <Title style={{ userSelect: "none" }}>
+            {data.title.name}
+            {/* <SubTitle> /about</SubTitle> */}
+          </Title>
+        </TitleLink>
+
 
         <Hamburger
           onClick={() => {
@@ -159,19 +162,31 @@ const Title = styled.div`
   transition: 0.15s ease;
   font-weight: 800;
   margin-left: 2px;
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 const Back = styled.div`
   position: fixed;
   width: 100%;
   background-color: white;
 `;
-const HomeLink = styled(Link)`
+
+const LogoLink = styled(Link)`
   text-decoration: none;
   color: black;
-  margin: auto;
+  margin: auto 0;
+`;
+
+const TitleLink = styled(Link)`
+  text-decoration: none;
+  color: black;
   margin-left: 80px;
   @media (max-width: 768px) {
-    margin-left: 60px;
+    margin-left: 0;
+    flex-grow: 1;
+    text-align: center;
+
   }
 `;
 const Hamburger = styled.div`
@@ -253,6 +268,7 @@ const Nav = styled.div`
   height: 80px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   z-index: 9;
   transition: 0.8s ease;
   @media (max-width: 768px) {
