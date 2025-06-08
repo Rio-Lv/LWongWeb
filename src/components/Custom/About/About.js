@@ -27,7 +27,7 @@ function About() {
 
         <MainImage
           style={{
-            backgroundImage: `url(${"https://dr3h7ptpe31k5.cloudfront.net/Site/Logo/5605/HS-workspace%20hero.jpeg"})`,
+            backgroundImage: `url(${"/images/about1.jpg"})`,
           }}
         />
         <InfoTitle>ESTABLISHMENT</InfoTitle>
@@ -46,7 +46,7 @@ function About() {
         <div style={{ position: "relative", width: "100%", height: "420px" }}>
           <SecondImage
             style={{
-              backgroundImage: `url(${"https://dr3h7ptpe31k5.cloudfront.net/Site/Logo/5605/HS-workspace%20hero.jpeg"})`,
+              backgroundImage: `url(${"/images/about2.jpg"})`,
             }}
           />
         </div>
@@ -100,6 +100,12 @@ const SecondImage = styled.div`
   left: 50%;
   transform: translate(-50%, 0);
   position: absolute;
+  @media (max-width: 768px) {
+    width: 100%;
+    left: 0;
+    transform: none;
+    position: relative;
+  }
 `;
 const InfoTitle = styled.div`
   height: 80px;
@@ -124,4 +130,14 @@ const Info = styled.div`
   font-weight: 400;
   background-color: #ffffff;
   transform: translate(-50%, 0);
+  @media (max-width: 768px) {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    text-align: left;
+    padding: 0 20px;
+  }
 `;
