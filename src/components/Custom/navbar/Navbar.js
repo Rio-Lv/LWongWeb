@@ -122,6 +122,10 @@ function Navbar(props) {
 
 
         <Hamburger
+          sx
+          style={{
+            color: "white",
+          }}
           onClick={() => {
             setMenuOpen(!menuOpen);
           }}
@@ -189,9 +193,10 @@ const Brand = styled.div`
 `;
 const Hamburger = styled.div`
   display: none;
-  font-size: 26px;
+  font-size: 36px;
   margin: auto;
   margin-right: 20px;
+  margin-bottom:16px;
   cursor: pointer;
   user-select: none;
   @media (max-width: 768px) {

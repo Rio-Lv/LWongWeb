@@ -71,6 +71,8 @@ function Classes({ data, navbar }) {
 
 export default Classes;
 
+const isMobile = window.innerWidth < 768;
+
 /* ---------------------- styled ---------------------- */
 
 const Wrapper = styled.div`
@@ -95,16 +97,17 @@ const DisplayArea = styled.div`
 
 /* flex-box keeps the text centred no matter what */
 const Title = styled.div`
-  height: 80px;
+  height: ${isMobile ? "50px" : "80px"};
   width: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-size: 30px;
+  font-size: ${isMobile ? "20px" : "40px"};
   font-weight: 600;
   color: #595959;
+  font-size: 24px;
 
   background-color: #f2f2f2;
   border-bottom: 3px solid #ffffff;
