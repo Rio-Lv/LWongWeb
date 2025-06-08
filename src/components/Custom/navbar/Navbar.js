@@ -8,6 +8,7 @@ function Navbar(props) {
   const [hide, setHide] = useState(true);
   const [lock, setLock] = useState(false);
   const [mouseOnNav, setMouseOnNav] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       setHide(false);
@@ -41,6 +42,15 @@ function Navbar(props) {
   useEffect(() => {
     window.addEventListener("wheel", wheel);
   }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const createBar = () => {
     const tabs = [];
     data.tabs.forEach((tab) => {
@@ -56,6 +66,7 @@ function Navbar(props) {
             }}
             onClick={() => {
               tab.func();
+              setMenuOpen(false);
               // setHide(true);
             }}
           >
@@ -85,15 +96,7 @@ function Navbar(props) {
           backgroundColor: mouseOnNav ? "#0D0D0D" : "white",
         }}
       >
-        <Link
-          style={{
-            textDecoration: "none",
-            color: "black",
-            margin: "auto",
-            marginLeft: "80px",
-          }}
-          to={"/"}
-        >
+        <HomeLink to={"/"}>
           <div>
             <img
               src={logo}
@@ -115,9 +118,16 @@ function Navbar(props) {
               {/* <SubTitle> /about</SubTitle> */}
             </Title>
           </div>
-        </Link>
+        </HomeLink>
 
-        <Bar>{createBar()}</Bar>
+        <Hamburger
+          onClick={() => {
+            setMenuOpen(!menuOpen);
+          }}
+        >
+          &#9776;
+        </Hamburger>
+        <Bar open={menuOpen}>{createBar()}</Bar>
       </Nav>
       <NavGradientTop />
       <NavGradientBottom />
@@ -155,11 +165,42 @@ const Back = styled.div`
   width: 100%;
   background-color: white;
 `;
+const HomeLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  margin: auto;
+  margin-left: 80px;
+  @media (max-width: 768px) {
+    margin-left: 60px;
+  }
+`;
+const Hamburger = styled.div`
+  display: none;
+  font-size: 26px;
+  margin: auto;
+  margin-right: 20px;
+  cursor: pointer;
+  user-select: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
 const Bar = styled.div`
   display: flex;
   flex-direction: row-reverse;
   margin: auto;
   margin-right: 50px;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background-color: #0d0d0d;
+    width: 150px;
+    padding: 10px 0;
+    margin-right: 0;
+    display: ${(props) => (props.open ? 'flex' : 'none')};
+  }
 `;
 const Tab = styled.div`
   margin-right: 20px;
@@ -171,6 +212,12 @@ const Tab = styled.div`
   background-color: transparent;
   &:hover {
     color: white;
+  }
+  @media (max-width: 768px) {
+    margin: 10px 0;
+    margin-right: 0;
+    color: ${color0};
+    padding: 5px 20px;
   }
 `;
 
@@ -208,6 +255,9 @@ const Nav = styled.div`
   flex-direction: row;
   z-index: 9;
   transition: 0.8s ease;
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
   :hover {
     background-color: #262626;
   }
