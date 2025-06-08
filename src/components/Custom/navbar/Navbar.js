@@ -97,30 +97,28 @@ function Navbar(props) {
         }}
       >
 
-        <LogoLink to={"/"}>
-          <img
-            src={logo}
-            alt=""
-            style={{
-              height: "45px",
-              position: "absolute",
-              left: "15px",
-              top: hide ? "2px" : "13px",
-              transition: ".2s ease",
+        <Brand>
+          <LogoLink to={"/"}>
+            <img
+              src={logo}
+              alt=""
+              style={{
+                height: "45px",
+                transition: ".2s ease",
+                filter: !mouseOnNav
+                  ? "invert(0) grayscale(0) contrast(1.3) brightness(0)"
+                  : "invert(1) grayscale(1) contrast(1) brightness(5)",
+              }}
+            />
+          </LogoLink>
 
-              filter: !mouseOnNav
-                ? "invert(0) grayscale(0) contrast(1.3) brightness(0)"
-                : "invert(1) grayscale(1) contrast(1) brightness(5)",
-            }}
-          />
-        </LogoLink>
-
-        <TitleLink to={"/"}>
-          <Title style={{ userSelect: "none" }}>
-            {data.title.name}
-            {/* <SubTitle> /about</SubTitle> */}
-          </Title>
-        </TitleLink>
+          <TitleLink to={"/"}>
+            <Title style={{ userSelect: "none" }}>
+              {data.title.name}
+              {/* <SubTitle> /about</SubTitle> */}
+            </Title>
+          </TitleLink>
+        </Brand>
 
 
         <Hamburger
@@ -181,13 +179,13 @@ const LogoLink = styled(Link)`
 const TitleLink = styled(Link)`
   text-decoration: none;
   color: black;
-  margin-left: 80px;
-  @media (max-width: 768px) {
-    margin-left: 0;
-    flex-grow: 1;
-    text-align: center;
+`;
 
-  }
+const Brand = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 16px;
 `;
 const Hamburger = styled.div`
   display: none;
