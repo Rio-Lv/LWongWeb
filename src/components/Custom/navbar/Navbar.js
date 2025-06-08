@@ -28,6 +28,19 @@ function Navbar(props) {
     }
   };
 
+  const prevScrollY = useRef(window.scrollY);
+  const handleScroll = () => {
+    if (!lock) {
+      const currentY = window.scrollY;
+      if (currentY > prevScrollY.current) {
+        setHide(true);
+      } else if (currentY < prevScrollY.current) {
+        setHide(false);
+      }
+      prevScrollY.current = currentY;
+    }
+  };
+
   useEffect(() => {
     var hider;
     clearInterval(hider);
@@ -44,6 +57,11 @@ function Navbar(props) {
 
   useEffect(() => {
     window.addEventListener("wheel", wheel);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("wheel", wheel);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
   useEffect(() => {
     const handleResize = () => {
