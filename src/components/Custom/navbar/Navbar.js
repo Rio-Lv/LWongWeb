@@ -8,6 +8,7 @@ function Navbar(props) {
   const [hide, setHide] = useState(true);
   const [lock, setLock] = useState(false);
   const [mouseOnNav, setMouseOnNav] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       setHide(false);
@@ -41,6 +42,15 @@ function Navbar(props) {
   useEffect(() => {
     window.addEventListener("wheel", wheel);
   }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const createBar = () => {
     const tabs = [];
     data.tabs.forEach((tab) => {
@@ -56,6 +66,7 @@ function Navbar(props) {
             }}
             onClick={() => {
               tab.func();
+              setMenuOpen(false);
               // setHide(true);
             }}
           >
@@ -85,39 +96,39 @@ function Navbar(props) {
           backgroundColor: mouseOnNav ? "#0D0D0D" : "white",
         }}
       >
-        <Link
-          style={{
-            textDecoration: "none",
-            color: "black",
-            margin: "auto",
-            marginLeft: "80px",
+        <LogoLink to={"/"}>
+          <img
+            src={logo}
+            alt=""
+            style={{
+              height: "45px",
+              position: "absolute",
+              left: "15px",
+              top: hide ? "2px" : "13px",
+              transition: ".2s ease",
+
+              filter: !mouseOnNav
+                ? "invert(0) grayscale(0) contrast(1.3) brightness(0)"
+                : "invert(1) grayscale(1) contrast(1) brightness(5)",
+            }}
+          />
+        </LogoLink>
+
+        <TitleLink to={"/"}>
+          <Title style={{ userSelect: "none" }}>
+            {data.title.name}
+            {/* <SubTitle> /about</SubTitle> */}
+          </Title>
+        </TitleLink>
+
+        <Hamburger
+          onClick={() => {
+            setMenuOpen(!menuOpen);
           }}
-          to={"/"}
         >
-          <div>
-            <img
-              src={logo}
-              alt=""
-              style={{
-                height: "45px",
-                position: "absolute",
-                left: "15px",
-                top: hide ? "2px" : "13px",
-                transition: ".2s ease",
-
-                filter: !mouseOnNav
-                  ? "invert(0) grayscale(0) contrast(1.3) brightness(0)"
-                  : "invert(1) grayscale(1) contrast(1) brightness(5)",
-              }}
-            />
-            <Title style={{ userSelect: "none" }}>
-              {data.title.name}
-              {/* <SubTitle> /about</SubTitle> */}
-            </Title>
-          </div>
-        </Link>
-
-        <Bar>{createBar()}</Bar>
+          &#9776;
+        </Hamburger>
+        <Bar open={menuOpen}>{createBar()}</Bar>
       </Nav>
       <NavGradientTop />
       <NavGradientBottom />
@@ -149,17 +160,58 @@ const Title = styled.div`
   transition: 0.15s ease;
   font-weight: 800;
   margin-left: 2px;
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 const Back = styled.div`
   position: fixed;
   width: 100%;
   background-color: white;
 `;
+const LogoLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  margin: auto 0;
+`;
+
+const TitleLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  margin-left: 80px;
+  @media (max-width: 768px) {
+    margin-left: 0;
+    flex-grow: 1;
+    text-align: center;
+  }
+`;
+const Hamburger = styled.div`
+  display: none;
+  font-size: 26px;
+  margin: auto;
+  margin-right: 20px;
+  cursor: pointer;
+  user-select: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
 const Bar = styled.div`
   display: flex;
   flex-direction: row-reverse;
   margin: auto;
   margin-right: 50px;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background-color: #0d0d0d;
+    width: 150px;
+    padding: 10px 0;
+    margin-right: 0;
+    display: ${(props) => (props.open ? 'flex' : 'none')};
+  }
 `;
 const Tab = styled.div`
   margin-right: 20px;
@@ -171,6 +223,12 @@ const Tab = styled.div`
   background-color: transparent;
   &:hover {
     color: white;
+  }
+  @media (max-width: 768px) {
+    margin: 10px 0;
+    margin-right: 0;
+    color: ${color0};
+    padding: 5px 20px;
   }
 `;
 
@@ -206,8 +264,12 @@ const Nav = styled.div`
   height: 80px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   z-index: 9;
   transition: 0.8s ease;
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
   :hover {
     background-color: #262626;
   }
