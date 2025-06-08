@@ -83,4 +83,9 @@ const Box = styled.div`
   background-position: center;
   /* border: 3px solid red; */
   transition: transform 3s ease, filter 3s, opacity 1s;
+
+  @media (max-width: 768px) {
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+  }
 `;
