@@ -7,7 +7,8 @@ import NavBuffer from "../projects/NavBuffer";
 import Project from "./Project";
 import { Link, Redirect, Route } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-const isMobile = window.innerWidth <= 768; // mobile breakpoint (px)
+const BP = 768; // mobile breakpoint (px)
+const isMobile = window.innerWidth <= BP;
 // this takes in data from Projects
 function ProjectsMini(props) {
   const [project, setProject] = useState(null);
@@ -189,10 +190,10 @@ const ClassTitle = styled.div`
 
 const Title = styled.div`
   position: relative;
-  height: 80px;
+  height: ${isMobile ? "50px" : "80px"};
   width: 100%;
-  line-height: 80px;
-  font-size: 30px;
+  line-height: ${isMobile ? "50px" : "80px"};
+  font-size: ${isMobile ? "20px" : "30px"};
   color: #595959;
   text-align: center;
   font-weight: 600;
