@@ -14,7 +14,7 @@ const DESKTOP_INFO_W = 30; // percentage
 const MOBILE_INFO_W = 40; // percentage
 const shiftVal = 10; // width shift on hover
 const BP = 768; // mobile breakpoint
-const blockHeight = 200; // px height
+const blockHeight = 150; // px height
 
 function ProjectBlockMini(props) {
   const [project, setProject] = useState(props.project);
