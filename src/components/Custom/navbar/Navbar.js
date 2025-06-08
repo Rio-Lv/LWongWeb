@@ -74,11 +74,7 @@ function Navbar(props) {
     const tabs = [];
     data.tabs.forEach((tab) => {
       tabs.push(
-        <Link
-          key={tab.name}
-          to={`/${tab.name}`}
-          style={{ textDecoration: "none", userSelect: "none" }}
-        >
+        <TabLink key={tab.name} to={`/${tab.name}`}>
           <Tab
             onMouseOver={() => {
               setHide(false);
@@ -91,7 +87,7 @@ function Navbar(props) {
           >
             {tab.name}
           </Tab>
-        </Link>
+        </TabLink>
       );
     });
 
@@ -207,6 +203,15 @@ const TitleLink = styled(Link)`
   color: black;
   @media (max-width: 768px) {
     color: ${color0};
+  }
+`;
+
+const TabLink = styled(Link)`
+  text-decoration: none;
+  user-select: none;
+  @media (max-width: 768px) {
+    width: 100%;
+    display: block;
   }
 `;
 
