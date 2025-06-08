@@ -96,6 +96,7 @@ function Navbar(props) {
           backgroundColor: mouseOnNav ? "#0D0D0D" : "white",
         }}
       >
+
         <LogoLink to={"/"}>
           <img
             src={logo}
@@ -120,6 +121,7 @@ function Navbar(props) {
             {/* <SubTitle> /about</SubTitle> */}
           </Title>
         </TitleLink>
+
 
         <Hamburger
           onClick={() => {
@@ -169,6 +171,7 @@ const Back = styled.div`
   width: 100%;
   background-color: white;
 `;
+
 const LogoLink = styled(Link)`
   text-decoration: none;
   color: black;
@@ -183,6 +186,7 @@ const TitleLink = styled(Link)`
     margin-left: 0;
     flex-grow: 1;
     text-align: center;
+
   }
 `;
 const Hamburger = styled.div`
