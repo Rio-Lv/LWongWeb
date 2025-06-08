@@ -52,6 +52,9 @@ function Navbar(props) {
   }, [hide]);
 
   useEffect(() => {
+    if (hide) {
+      setMenuOpen(false);
+    }
     props.setNavbar(hide);
   }, [hide]);
 
