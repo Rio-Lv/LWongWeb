@@ -5,9 +5,9 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   </head>
   <style>
-    *{
-        color: black;
-        --primary-color: #203972;
+    * {
+      color: black;
+      --primary-color: #203972;
     }
   </style>
   <body style="font-size: 10pt; font-family: Arial, sans-serif">
@@ -62,7 +62,6 @@
                   style="
                     font-size: 12pt;
                     font-family: Arial, sans-serif;
-                    color: var(--primary-color);
                     line-height: 18pt;
                   "
                   >%%FirstName%% %%LastName%%</span
@@ -71,14 +70,16 @@
                 style="
                   font-family: Arial, sans-serif;
                   font-size: 9pt;
-                  color: var(--primary-color);
                   line-height: 14pt;
                 "
                 ><br />%%Title%%</span
               >
             </p>
             <span
-              ><a href="https://lwongconsulting.com/" target="_blank"
+              ><a
+                style="color: var(--primary-color)"
+                href="https://lwongconsulting.com/"
+                target="_blank"
                 ><img
                   border="0"
                   width="132"
@@ -91,56 +92,24 @@
             style="vertical-align: top; padding-left: 30px; padding-bottom: 6px"
           >
             <span
-              ><span style="color: var(--primary-color)"><strong>Email:</strong></span
-              ><a
-                href="mailto:%%Email%%"
-                style="
-                  text-decoration: none;
-                  font-size: 9pt;
-                  font-family: Arial, sans-serif;
-                  color: var(--primary-color);
-                "
-                ><span
-                  style="
-                    text-decoration: none;
-                    font-size: 9pt;
-                    font-family: Arial, sans-serif;
-                    color: var(--primary-color);
-                  "
-                  >%%Email%%</span
-                ></a
-              ><br /></span
-            ><span
-              ><span style="color: var(--primary-color)"><strong>Mobile:</strong></span
-              ><span
-                style="
-                  font-size: 9pt;
-                  font-family: Arial, sans-serif;
-                  color: var(--primary-color);
-                "
-                >%%MobileNumber%%<br /></span></span
-            ><span
-              ><span style="color: var(--primary-color)"><strong>Address:</strong></span
-              ><span
-                style="
-                  font-family: Arial, sans-serif;
-                  font-size: 9pt;
-                  color: var(--primary-color);
-                "
-                >%%Street%%, %%City%%, %%Country%%</span
-              ></span
+              style="
+                text-decoration: none;
+                font-size: 9pt;
+                font-family: Arial, sans-serif;
+              "
+              >%%Email%%</span
             >
+            <span style="font-size: 9pt; font-family: Arial, sans-serif"
+              >%%MobileNumber%%
+            </span>
+            <span style="font-family: Arial, sans-serif; font-size: 9pt"
+              >%%Street%%, %%City%%, %%Country%%
+            </span>
           </td>
         </tr>
         <tr></tr>
         <tr>
-          <td
-            style="
-              vertical-align: top;
-              padding-top: 15px;
-            "
-            valign="top"
-          >
+          <td style="vertical-align: top; padding-top: 15px" valign="top">
             <a
               href="http://lwongconsulting.com"
               target="_blank"
@@ -167,6 +136,5 @@
         </tr>
       </tbody>
     </table>
-   
   </body>
 </html>
