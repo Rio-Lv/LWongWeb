@@ -3,19 +3,22 @@
   <head>
     <title>Email Signature</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <style>
     * {
       color: black;
       --primary-color: #203972;
+      font-family: "Poppins", sans-serif;
     }
   </style>
-  <body style="font-size: 10pt; font-family: Arial, sans-serif">
+  <body style="font-size: 6.1px; font-family: 'Poppins', sans-serif">
     <table
       style="
         width: 420px;
-        font-size: 10pt;
-        font-family: Arial, sans-serif;
         background: transparent !important;
       "
       cellpadding="0"
@@ -45,93 +48,28 @@
           </td>
         </tr>
         <tr>
-          <td
-            style="
-              font-size: 12pt;
-              font-family: Arial, sans-serif;
-              width: 200px;
-              padding-right: 10px;
-              vertical-align: bottom;
-              padding-bottom: 10px;
-            "
-            valign="bottom"
-          >
-            <p style="margin-bottom: 10px; padding-bottom: 0px; line-height: 1">
-              <strong
-                ><span
-                  style="
-                    font-size: 12pt;
-                    font-family: Arial, sans-serif;
-                    line-height: 18pt;
-                  "
-                  >%%FirstName%% %%LastName%%</span
-                ></strong
-              ><span
-                style="
-                  font-family: Arial, sans-serif;
-                  font-size: 9pt;
-                  line-height: 14pt;
-                "
-                ><br />%%Title%%</span
-              >
-            </p>
-            <span
-              ><a
-                style="color: var(--primary-color)"
-                href="https://lwongconsulting.com/"
-                target="_blank"
-                ><img
-                  border="0"
-                  width="132"
-                  style="width: 132px; height: auto; border: 0"
-                  src="https://lwongconsulting.com/static/media/logo.125ba452.png" /></a
-            ></span>
+          <td style="padding-right: 10px; vertical-align: top; width: 200px;">
+            <div style="display: flex; flex-direction: column; justify-content: space-between; height: 132px;">
+              <div style="line-height: 1.4;">
+                <span style="font-size: 10.3px; font-weight: 600;">%%FirstName%% %%LastName%%</span><br />
+                <span style="font-size: 6.1px;">%%Title%%</span>
+              </div>
+              <div style="line-height: 1.4;">
+                <div style="font-size: 6.1px;">%%Email%%</div>
+                <div style="font-size: 6.1px;">%%MobileNumber%%</div>
+                <div style="font-size: 6.1px;">%%Street%%, %%City%%, %%Country%%</div>
+                <div style="font-size: 6.1px;"><a href="http://lwongconsulting.com" target="_blank" style="color: var(--primary-color); text-decoration: underline;">lwongconsulting.com</a></div>
+              </div>
+            </div>
           </td>
-          <td
-            valign="top"
-            style="vertical-align: top; padding-left: 30px; padding-bottom: 6px"
-          >
-            <span
-              style="
-                text-decoration: none;
-                font-size: 9pt;
-                font-family: Arial, sans-serif;
-              "
-              >%%Email%%</span
-            >
-            <span style="font-size: 9pt; font-family: Arial, sans-serif"
-              >%%MobileNumber%%
-            </span>
-            <span style="font-family: Arial, sans-serif; font-size: 9pt"
-              >%%Street%%, %%City%%, %%Country%%
-            </span>
-          </td>
-        </tr>
-        <tr></tr>
-        <tr>
-          <td style="vertical-align: top; padding-top: 15px" valign="top">
-            <a
-              href="http://lwongconsulting.com"
-              target="_blank"
-              rel="noopener"
-              style="
-                font-size: 9pt;
-                font-family: Arial, sans-serif;
-                text-decoration: none;
-                color: var(--primary-color);
-                font-weight: bold;
-              "
-              ><span
-                style="
-                  font-size: 9pt;
-                  font-family: Arial, sans-serif;
-                  text-decoration: none;
-                  color: var(--primary-color);
-                  font-weight: bold;
-                "
-                >lwongconsulting.com</span
-              ></a
-            >
+          <td style="vertical-align: top; padding-left: 30px;">
+            <img
+              border="0"
+              width="132"
+              style="width: 132px; height: auto; border: 0"
+              src="https://lwongconsulting.com/static/media/logo.125ba452.png"
+              alt="Logo"
+            />
           </td>
         </tr>
       </tbody>
