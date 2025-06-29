@@ -12,15 +12,22 @@
     * {
       color: black;
       --primary-color: #203972;
+      --primary-color-faded: #aebfd5;
+
+      --smaller-font-size: 11px;
+      --larger-font-size: 15px;
       font-family: "Poppins", sans-serif;
+      --primary-line-height: 1.6;
     }
   </style>
-  <body style="font-size: 6.1px; font-family: 'Poppins', sans-serif">
+  <body
+    style="
+      font-size: var(--smaller-font-size);
+      font-family: 'Poppins', sans-serif;
+    "
+  >
     <table
-      style="
-        width: 420px;
-        background: transparent !important;
-      "
+      style="width: 420px; background: transparent !important"
       cellpadding="0"
       cellspacing="0"
       border="0"
@@ -41,32 +48,64 @@
               font-size: 15px;
               line-height: 15px;
               height: 15px;
-              border-top: 1px solid var(--primary-color);
+              border-top: 3px solid var(--primary-color-faded);
             "
           >
             &nbsp;
           </td>
         </tr>
         <tr>
-          <td style="padding-right: 10px; vertical-align: top; width: 200px;">
-            <div style="display: flex; flex-direction: column; justify-content: space-between; height: 132px;">
-              <div style="line-height: 1.4;">
-                <span style="font-size: 10.3px; font-weight: 600;">%%FirstName%% %%LastName%%</span><br />
-                <span style="font-size: 6.1px;">%%Title%%</span>
+          <td style="padding-right: 10px; vertical-align: top; width: 250px">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 132px;
+                padding: 4px;
+                padding-top: 0;
+              "
+            >
+              <div style="line-height: var(--primary-line-height)">
+                <span
+                  style="
+                  font-size: var(--larger-font-size); 
+                  font-weight: 500;
+                  white-space: nowrap;
+                  "
+                  >%%FirstName%% %%LastName%% </span
+                ><br />
+                <span style="font-size: var(--smaller-font-size); font-weight: 600; text-transform: uppercase;"
+                  >%%Title%%</span
+                >
               </div>
-              <div style="line-height: 1.4;">
-                <div style="font-size: 6.1px;">%%Email%%</div>
-                <div style="font-size: 6.1px;">%%MobileNumber%%</div>
-                <div style="font-size: 6.1px;">%%Street%%, %%City%%, %%Country%%</div>
-                <div style="font-size: 6.1px;"><a href="http://lwongconsulting.com" target="_blank" style="color: var(--primary-color); text-decoration: underline;">lwongconsulting.com</a></div>
+              <div style="line-height: var(--primary-line-height)">
+                <div style="font-size: var(--smaller-font-size)">%%Email%%</div>
+                <div style="font-size: var(--smaller-font-size)">
+                  %%MobileNumber%%
+                </div>
+                <div style="font-size: var(--smaller-font-size)">
+                  %%Street%%, %%City%%, %%Country%%
+                </div>
+                <div style="font-size: var(--smaller-font-size)">
+                  <a
+                    href="http://lwongconsulting.com"
+                    target="_blank"
+                    style="
+                      color: var(--primary-color);
+                      text-decoration: underline;
+                    "
+                    >lwongconsulting.com</a
+                  >
+                </div>
               </div>
             </div>
           </td>
-          <td style="vertical-align: top; padding-left: 30px;">
+          <td style="vertical-align: top; padding-left: 30px">
             <img
               border="0"
-              width="132"
-              style="width: 132px; height: auto; border: 0"
+              width="156"
+              style="width: 156px; height: auto; border: 0"
               src="https://lwongconsulting.com/static/media/logo.125ba452.png"
               alt="Logo"
             />
