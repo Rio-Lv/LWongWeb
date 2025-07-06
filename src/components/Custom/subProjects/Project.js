@@ -16,6 +16,7 @@ function Project(props) {
     console.log("project opened, window scrolled?");
   }, []);
   useEffect(() => {
+    console.log({project: props.project});
     console.log(props.project.photos[0].src);
     setProject(props.project);
   }, [props.project]);
