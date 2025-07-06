@@ -11,11 +11,6 @@ function Project(props) {
   const [zoomBack, setZoomBack] = useState(1);
   const [zoomColumn, setZoomColumn] = useState(1);
   useEffect(() => {
-    window.scroll(0, 0);
-    console.log(document.documentElement.scrollTop);
-    console.log("project opened, window scrolled?");
-  }, []);
-  useEffect(() => {
     console.log(props.project.photos[0].src);
     setProject(props.project);
   }, [props.project]);
