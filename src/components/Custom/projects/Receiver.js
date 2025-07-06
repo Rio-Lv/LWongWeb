@@ -4,67 +4,70 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Classes from "./Classes";
 
+import {default_data, default_object} from "./data"
+
+
 function Receiver(props) {
   const [user, setUser] = useState("bhzfBvdgxZYrvKvDaXz5iaQzIjn1");
   const [clearedList, setClearedList] = useState(null);
-  const [object, setObject] = useState(null);
-  const [data, setData] = useState(null);
+  const [object, setObject] = useState(default_object);
+  const [data, setData] = useState(default_data);
 
-  useEffect(() => {
-    const clean = (object, pathFilter) => {
-      const cleaned = {};
-      for (const property in object) {
-        const shortDirectory = property.replace(pathFilter, "");
-        cleaned[shortDirectory] = object[property];
-      }
-      return cleaned;
-    };
-    if (user) {
-      const rootDirectory = `trees/users/${user}/`;
-      const pathFilter = `trees/users/${user}/`;
-      const docRef = doc(db, rootDirectory, "summary");
+  // useEffect(() => {
+  //   const clean = (object, pathFilter) => {
+  //     const cleaned = {};
+  //     for (const property in object) {
+  //       const shortDirectory = property.replace(pathFilter, "");
+  //       cleaned[shortDirectory] = object[property];
+  //     }
+  //     return cleaned;
+  //   };
+  //   if (user) {
+  //     const rootDirectory = `trees/users/${user}/`;
+  //     const pathFilter = `trees/users/${user}/`;
+  //     const docRef = doc(db, rootDirectory, "summary");
 
-      onSnapshot(docRef, (doc) => {
-        const cleaned = clean(doc.data(), pathFilter);
+  //     onSnapshot(docRef, (doc) => {
+  //       const cleaned = clean(doc.data(), pathFilter);
 
-        setClearedList(cleaned);
-      });
-    }
-  }, [user]);
-  useEffect(() => {
-    const BuildObject = (listData) => {
-      const newObject = {};
-      for (const property in listData) {
-        const pathArray = property.split("/").slice(1);
+  //       setClearedList(cleaned);
+  //     });
+  //   }
+  // }, [user]);
+  // useEffect(() => {
+  //   const BuildObject = (listData) => {
+  //     const newObject = {};
+  //     for (const property in listData) {
+  //       const pathArray = property.split("/").slice(1);
 
-        var createNestedObject = (base, path, value) => {
-          for (var i = 0; i < path.length; i++) {
-            if (i === path.length - 1) {
-              base[path[i]] = Object.assign(base[path[i]] || {}, value);
-            } else {
-              base =
-                base[path[i]] =
-                base[path[i]] =
-                base[path[i]] =
-                base[path[i]] =
-                base[path[i]] =
-                base[path[i]] =
-                base[path[i]] =
-                base[path[i]] =
-                base[path[i]] =
-                  base[path[i]] || {};
-            }
-          }
-        };
-        createNestedObject(newObject, pathArray, clearedList[property]);
-      }
+  //       var createNestedObject = (base, path, value) => {
+  //         for (var i = 0; i < path.length; i++) {
+  //           if (i === path.length - 1) {
+  //             base[path[i]] = Object.assign(base[path[i]] || {}, value);
+  //           } else {
+  //             base =
+  //               base[path[i]] =
+  //               base[path[i]] =
+  //               base[path[i]] =
+  //               base[path[i]] =
+  //               base[path[i]] =
+  //               base[path[i]] =
+  //               base[path[i]] =
+  //               base[path[i]] =
+  //               base[path[i]] =
+  //                 base[path[i]] || {};
+  //           }
+  //         }
+  //       };
+  //       createNestedObject(newObject, pathArray, clearedList[property]);
+  //     }
 
-      return newObject;
-    };
-    if (user) {
-      setObject(BuildObject(clearedList));
-    }
-  }, [clearedList, user]);
+  //     return newObject;
+  //   };
+  //   if (user) {
+  //     // setObject(BuildObject(clearedList));
+  //   }
+  // }, [clearedList, user]);
   useEffect(() => {
     if (object) {
       console.log(object);
