@@ -22,10 +22,6 @@ function ClassBlock(props) {
   const [infoHover, setInfoHover] = useState(false);
 
   const [shift, setShift] = useState(0);
-  //scroll to top
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
   useEffect(() => {
     if (props.index % 2 === 0 || props.index === 0) {
       setEven(true);

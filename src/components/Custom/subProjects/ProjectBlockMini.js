@@ -17,11 +17,6 @@ function ProjectBlockMini(props) {
   const [even, setEven] = useState(true);
   const [infoHover, setInfoHover] = useState(false);
 
-  // scroll to top
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
-
   useEffect(() => {
     if (props.index % 2 === 0) {
       setEven(true);
