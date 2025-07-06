@@ -52,7 +52,8 @@ function ProjectsMini(props) {
           id={id}
           onClick={() => {
             console.log("scrolling from project blocks mini");
-            console.log((document.getElementById(id).scroll = -1000));
+            const el = document.getElementById(id);
+            if (el) el.scrollTop = 0;
           }}
         >
           <div>
