@@ -2092,7 +2092,7 @@ export const default_object = {
             title2: "",
             name: "COHAFPA HOUSING COMPLEX",
             text3:
-              "Construction of a mixed-use commercial and residential complex, including a Main Office Block, 471 housing units — comprising 393 individual villas and 78 townhouses — along with ancillary buildings.",
+              "Construction of a mixed-use commercial and residential complex for the parliament staff, including a Main Office Block, 471 housing units — comprising 393 individual villas and 78 apartments — along with ancillary buildings.",
             listInfo: ["MAPUTO-MOZAMBIQUE", "DESIGN AND SUPERVISION"],
           },
           name: "RESIDENTIAL",
