@@ -1951,8 +1951,10 @@ export const default_object = {
               "Client :  Jiangsu International;;Implementation period :  2013- 2017;;Role :   Structural Design , Water and Sewage Design and Site Supervision",
             title1: "Vilasol Housing Complex",
           },
+
           "DIPLOMATIC VILLAGE": {
             id: "DIPLOMATIC VILLAGE",
+            index: "3",
             name: "DIPLOMATIC VILLAGE",
             text2:
               "Client :  INVALCO;;Implementation period :  2004- 2006;;Role :  Architectural Design, Structural Design , Electrical Design , Water and Sewage Design and Site Supervision",
@@ -1973,6 +1975,33 @@ export const default_object = {
               "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FDIPLOMATIC%20VILLAGE%2FDIPLOMATIC%20VILLAGE_c514d14c-a363-4713-b7b3-50351971696c?alt=media&token=7d66e948-65af-4d29-a552-d3483e981fd4",
               "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FDIPLOMATIC%20VILLAGE%2FDIPLOMATIC%20VILLAGE_c6573a1f-8141-47f1-8abe-b5bcb87457aa?alt=media&token=6f35e595-9af6-494b-981e-565c41915167",
             ],
+            "THE PALM": {
+              index: "4",
+              name: "THE PALM",
+              images: [
+                "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_a749ec84-689d-4274-a13a-99a69279e6fa?alt=media&token=e7f7ae35-6289-4f78-9bfa-ac38cb4133d8",
+                "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_251840b0-192e-4c4a-abd5-127b0f48808e?alt=media&token=18346c24-7acc-4b9b-848a-aeea8d73a5cf",
+                "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_033d2792-fdfe-4174-adc3-9a0fd4714ac0?alt=media&token=90811a85-eef8-43cd-a8a2-ecf09303a217",
+                "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_26cf65f2-e40d-4b87-8da1-3d52a9f8634b?alt=media&token=2a77e66b-282d-4324-a933-122883ed913b",
+                "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_a8a60477-864c-4ef6-87d9-87c1e79c1431?alt=media&token=6f9d2a5a-7f75-4e55-9312-e12d0d36c84f",
+                "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_f800491d-5963-42eb-b6f0-b09916d36fc5?alt=media&token=99c07c18-e8e8-4233-b1a1-5748802766d4",
+                "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_d93ed5be-1450-4871-96f8-46fa10462d0e?alt=media&token=c48525b4-8796-4494-b512-cf8b98e55188",
+              ],
+              text3:
+                "Construction of  a close housing condominium, consisting of   of  6  blocks of apartment buildings  with a total number  of 58 upclass  apartments , including  all infra-structures such as internal roads and ancillary buildings ",
+              listInfo: [
+                "MAPUTO-MOZAMBIQUE",
+                "DESIGN AND SUPERVISION",
+                "2002-2004",
+              ],
+              text1: "Location:  Maputo , Mozambique ",
+              title3: "Project Description",
+              title2: "",
+              title1: "The Palm",
+              text2:
+                "Client :  Tricos Imobiliária;;Implementation period :  2008- 2014;;Role :   Structural Design  and Site Supervision",
+              id: "THE PALM",
+            },
             text3:
               "Construction of  a close housing condominium  of 3 blocks of  9 town   houses, including  all infra-structures such as internal roads and ancillary buildings ",
             listInfo: [
@@ -1982,41 +2011,15 @@ export const default_object = {
             ],
             title2: "",
           },
-          "THE PALM": {
-            name: "THE PALM",
-            images: [
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_a749ec84-689d-4274-a13a-99a69279e6fa?alt=media&token=e7f7ae35-6289-4f78-9bfa-ac38cb4133d8",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_251840b0-192e-4c4a-abd5-127b0f48808e?alt=media&token=18346c24-7acc-4b9b-848a-aeea8d73a5cf",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_033d2792-fdfe-4174-adc3-9a0fd4714ac0?alt=media&token=90811a85-eef8-43cd-a8a2-ecf09303a217",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_26cf65f2-e40d-4b87-8da1-3d52a9f8634b?alt=media&token=2a77e66b-282d-4324-a933-122883ed913b",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_a8a60477-864c-4ef6-87d9-87c1e79c1431?alt=media&token=6f9d2a5a-7f75-4e55-9312-e12d0d36c84f",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_f800491d-5963-42eb-b6f0-b09916d36fc5?alt=media&token=99c07c18-e8e8-4233-b1a1-5748802766d4",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FTHE%20PALM%2FTHE%20PALM_d93ed5be-1450-4871-96f8-46fa10462d0e?alt=media&token=c48525b4-8796-4494-b512-cf8b98e55188",
-            ],
-            text3:
-              "Construction of  a close housing condominium, consisting of   of  6  blocks of apartment buildings  with a total number  of 58 upclass  apartments , including  all infra-structures such as internal roads and ancillary buildings ",
-            listInfo: [
-              "MAPUTO-MOZAMBIQUE",
-              "DESIGN AND SUPERVISION",
-              "2002-2004",
-            ],
-            text1: "Location:  Maputo , Mozambique ",
-            title3: "Project Description",
-            index: "3",
-            title2: "",
-            title1: "The Palm",
-            text2:
-              "Client :  Tricos Imobiliária;;Implementation period :  2008- 2014;;Role :   Structural Design  and Site Supervision",
-            id: "THE PALM",
-          },
+
           SOMMERSCHIELD: {
+            index: "5",
             text1: "Location:  Maputo , Mozambique ",
             title1: "Sommershield Estates",
             id: "SOMMERSCHIELD",
             text2:
               "Client :   Sommershield Estates;;Implementation period :  1997- 1999;;Role :  Architectural Design, Structural Design , Electrical Design , Water and Sewage Design and Site Supervision",
             title3: "PROJECT DESCRIPTION",
-            index: "4",
             images: [
               "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FSOMMERSCHIELD%2FSOMMERSCHIELD_dfafab23-d3da-4d41-8f77-cb799e28a9af?alt=media&token=5d1bfa72-9ffc-4f66-ba3b-adcb8a1486e2",
               "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FRESIDENTIAL%2FSOMMERSCHIELD%2FSOMMERSCHIELD_4958ce72-43d8-43e2-9d09-70a991dbe4e9?alt=media&token=8bc017ed-881b-4e8d-9e69-78a1b91cd08f",
@@ -2037,13 +2040,13 @@ export const default_object = {
             listInfo: ["MAPUT0-MOZAMBIQUE", "DESIGN AND SUPERVISION"],
           },
           "CHINA JIANGXI INTERNATIONAL": {
+            index: "6",
             text1: "Location:  Maputo , Mozambique ",
             title1: "China Jiangxi International",
             id: "CHINA JIANGXI INTERNATIONAL",
             text2:
               "Client :   Jiangxi International;;Implementation period :  2018 - 2021;;Role : Architectural, Structural , Electrical , Water and Sewage  Design &  Site Supervision ",
             title3: "PROJECT DESCRIPTION",
-            index: "5",
             images: [
               "https://storage.googleapis.com/lwongconsult_images/RESIDENTIAL/CHINA%20JIANGXI%20INTERNATIONAL/1.jpg",
               "https://storage.googleapis.com/lwongconsult_images/RESIDENTIAL/CHINA%20JIANGXI%20INTERNATIONAL/2.jpg",
@@ -2065,13 +2068,13 @@ export const default_object = {
             listInfo: ["MAPUTO-MOZAMBIQUE", "DESIGN AND SUPERVISION"],
           },
           "COHAFPA HOUSING COMPLEX": {
+            index: "7",
             text1: "Location:  Katembe , Maputo , Mozambique",
             title1: "Cohafpa Housing Complex",
             id: "COHAFPA HOUSING COMPLEX",
             text2:
-              "Client :   COHAFPA;;Implementation period :  2021 - now;;Role :  Architectural, Structural , Electrical , Water and Sewage  Design &  Site Supervision ",
+              "Client :   COHAFPA;;Implementation period :  2021 - now;;Role :  Architectural, Structural , Electrical , Water and Sewage at Design Stage ",
             title3: "PROJECT DESCRIPTION",
-            index: "6",
             images: [
               "https://storage.googleapis.com/lwongconsult_images/COHFPA/1.jpg",
               "https://storage.googleapis.com/lwongconsult_images/COHFPA/2.jpg",
@@ -2319,6 +2322,41 @@ export const default_object = {
             title3: "Project Description",
           },
         },
+        EDUCATION: {
+          "ESG MAFAMBISSE": {
+            index: "0",
+            text3:
+              "Construction of a secondary school in the cyclone Idai-affected area of Mafambisse, with a capacity for 10,000 students and a total built area of 17,780 m². It is considered the largest secondary school built in Mozambique since independence.",
+            title1: "ESG MAFAMBISSE",
+            text2:
+              "Client :    TZU CHI  CHARITY FOUNDATION ;;Implementation Period - 2020-2023;;Role :  Architectural, Structural , Electrical , Water and Sewage  Design &  Site Upervision ",
+            text1: "Location : Sofala, Mozambique ",
+            id: "ESG MAFAMBISSE",
+            listInfo: ["SOFALA-MOZAMBIQUE", "DESIGN-SUPERVISION", "2020-2023"],
+            name: "ESG MAFAMBISSE",
+            title2: "",
+            title3: "Project Description",
+            images: [
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/1.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/2.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/3.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/4.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/5.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/6.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/7.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/8.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/9.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/10.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/11.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/12.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/13.jpg",
+            ],
+          },
+          images: [],
+          index: "5",
+          id: "EDUCATION",
+          name: "EDUCATION",
+        },
         INDUSTRIAL: {
           "MEREC NACALA": {
             index: "0",
@@ -2390,7 +2428,34 @@ export const default_object = {
             id: "MEREC BEIRA",
             name: "MEREC BEIRA",
           },
+          "DELTA WAREHOUSE": {
+            index: "2",
+            id: "DELTA WAREHOUSE",
+            images: [
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_697596f6-a6a4-4bda-91c0-f9f3698efaf7?alt=media&token=f39f9700-798f-4431-9ed9-b07f28650caf",
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_a4c52d08-e7c6-430e-a091-a128a903fd74?alt=media&token=7170f45f-1ef8-4b75-8ce4-736d5a33cce8",
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_4f38867a-6125-4610-9994-47773162fcf4?alt=media&token=fff20832-66bc-4b83-896c-7f83942ee06e",
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_cfa0749f-8223-4a24-b4a5-c23e615be4e4?alt=media&token=fb894b24-3c0b-48aa-b9fb-5e71ff58dd39",
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_deef5682-79ea-41b5-858d-8785f811a928?alt=media&token=48d43e08-3f4b-414c-bda1-d89e73ef953f",
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_3698b42b-62d9-49a2-944f-9d818adfbdaf?alt=media&token=e7466980-5692-4d69-a1d2-698ebd17125e",
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_785ff4bf-5dd8-42b2-a659-715f57f95989?alt=media&token=98cd79d4-f6c5-4407-8994-b694a46a5934",
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_78c93930-7fd1-4949-ac63-14720abca1f2?alt=media&token=6e7fb296-a18d-49df-be27-8d6e74ab8fd4",
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_e93b00bb-8974-4c3b-8efb-320827d9d074?alt=media&token=98a51725-71a7-49b3-96bf-275491b1a213",
+              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_12d024ef-ae92-4ac3-9796-a05418460e14?alt=media&token=d48b0866-8601-401d-9780-0a8fd2dbc97f",
+            ],
+            name: "DELTA WAREHOUSE",
+            text2:
+              "Client :   Delta Trading;;Implementation period :  2002- 2003;;Role :  Architectural , Structural , Electrical, Water and Sewage Design and Site Supervision",
+            text3:
+              "Construction of  industrial buildings  for rice and food storage ",
+            title1: "Delta Warehouse",
+            text1: "Location:  Maputo , Mozambique ",
+            title3: "Project Description",
+            listInfo: ["MAPUTO-MOZAMBIQUE", "DESIGN-SUPERVISION", "2002-2003"],
+            title2: "",
+          },
           "MEREC MACHAVA": {
+            index: "3",
             name: "MEREC MACHAVA",
             id: "MEREC MACHAVA",
             text3:
@@ -2414,33 +2479,6 @@ export const default_object = {
               "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FMEREC%20MACHAVA%2FMEREC%20MACHAVA_e9cd05b5-648c-43bd-8e6f-9649d067764c?alt=media&token=b075e4f9-15cd-4eec-8f2f-dbd90d5e98a6",
             ],
             title3: "Project Description",
-            index: "3",
-          },
-          "DELTA WAREHOUSE": {
-            id: "DELTA WAREHOUSE",
-            images: [
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_697596f6-a6a4-4bda-91c0-f9f3698efaf7?alt=media&token=f39f9700-798f-4431-9ed9-b07f28650caf",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_a4c52d08-e7c6-430e-a091-a128a903fd74?alt=media&token=7170f45f-1ef8-4b75-8ce4-736d5a33cce8",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_4f38867a-6125-4610-9994-47773162fcf4?alt=media&token=fff20832-66bc-4b83-896c-7f83942ee06e",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_cfa0749f-8223-4a24-b4a5-c23e615be4e4?alt=media&token=fb894b24-3c0b-48aa-b9fb-5e71ff58dd39",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_deef5682-79ea-41b5-858d-8785f811a928?alt=media&token=48d43e08-3f4b-414c-bda1-d89e73ef953f",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_3698b42b-62d9-49a2-944f-9d818adfbdaf?alt=media&token=e7466980-5692-4d69-a1d2-698ebd17125e",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_785ff4bf-5dd8-42b2-a659-715f57f95989?alt=media&token=98cd79d4-f6c5-4407-8994-b694a46a5934",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_78c93930-7fd1-4949-ac63-14720abca1f2?alt=media&token=6e7fb296-a18d-49df-be27-8d6e74ab8fd4",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_e93b00bb-8974-4c3b-8efb-320827d9d074?alt=media&token=98a51725-71a7-49b3-96bf-275491b1a213",
-              "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FDELTA%20WAREHOUSE%2FDELTA%20WAREHOUSE_12d024ef-ae92-4ac3-9796-a05418460e14?alt=media&token=d48b0866-8601-401d-9780-0a8fd2dbc97f",
-            ],
-            name: "DELTA WAREHOUSE",
-            index: "2",
-            text2:
-              "Client :   Delta Trading;;Implementation period :  2002- 2003;;Role :  Architectural , Structural , Electrical, Water and Sewage Design and Site Supervision",
-            text3:
-              "Construction of  industrial buildings  for rice and food storage ",
-            title1: "Delta Warehouse",
-            text1: "Location:  Maputo , Mozambique ",
-            title3: "Project Description",
-            listInfo: ["MAPUTO-MOZAMBIQUE", "DESIGN-SUPERVISION", "2002-2003"],
-            title2: "",
           },
           "MEREC NACALA - PHASE 2": {
             index: "4",
@@ -2511,7 +2549,7 @@ export const default_object = {
               "Construction of a new bakery factory with a production capacity of 600,000 units per day. The total construction area is 7,500 m², including a 7,150 m² factory building, bakery shop, truck washing bay, maintenance workshop, LNG station, and gatehouse.",
             title1: "EDO - SOCIMOL",
             text2:
-              "Client :    MEREC Industries ;;Implementation period :  2021-2023;;Role :  Architectural, Structural , Electrical , Water and Sewage Design ( for Office and Houses )",
+              "Client :    MEREC Industries ;;Implementation period :  2021-2023;;Role :  Architectural, Structural , Water and Sewage Design ( for Office and Houses )",
             text1: "Location : Nacala  , Mozambique",
             id: "EDO - SOCIMOL",
             listInfo: ["NACALA-MOZAMBIQUE", "DESIGN-SUPERVISION", "2021-2023"],
@@ -2532,44 +2570,9 @@ export const default_object = {
             ],
           },
           images: [],
-          index: "4",
+          index: "5",
           id: "INDUSTRIAL",
           name: "INDUSTRIAL",
-        },
-        EDUCATION: {
-          "ESG MAFAMBISSE": {
-            index: "0",
-            text3:
-              "Construction of a secondary school in the cyclone Idai-affected area of Mafambisse, with a capacity for 10,000 students and a total built area of 17,780 m². It is considered the largest secondary school built in Mozambique since independence.",
-            title1: "ESG MAFAMBISSE",
-            text2:
-              "Client :    TZU CHI  CHARITY FOUNDATION ;;Implementation Period - 2020-2023;;Role :  Architectural, Structural , Electrical , Water and Sewage  Design &  Site Upervision ",
-            text1: "Location : Sofala, Mozambique ",
-            id: "ESG MAFAMBISSE",
-            listInfo: ["SOFALA-MOZAMBIQUE", "DESIGN-SUPERVISION", "2020-2023"],
-            name: "ESG MAFAMBISSE",
-            title2: "",
-            title3: "Project Description",
-            images: [
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/1.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/2.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/3.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/4.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/5.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/6.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/7.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/8.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/9.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/10.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/11.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/12.jpg",
-              "https://storage.googleapis.com/lwongconsult_images/ESG%20MAFAMBISSE/13.jpg",
-            ],
-          },
-          images: [],
-          index: "-1",
-          id: "EDUCATION",
-          name: "EDUCATION",
         },
         id: "PROJECTS",
         images: [],

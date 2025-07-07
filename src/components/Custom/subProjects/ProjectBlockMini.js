@@ -29,9 +29,9 @@ function ProjectBlockMini(props) {
   }, []);
 
   // scroll to top
-  // useEffect(() => {
-  //   window.scroll(0, 0);
-  // }, []);
+  useEffect(() => {
+    // window.scroll(0, 0);
+  }, []);
 
   useEffect(() => {
     if (props.index % 2 === 0) {
