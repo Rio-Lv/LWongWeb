@@ -2541,7 +2541,7 @@ export const default_object = {
             index: "0",
             text3:
               "Construction of a secondary school in the cyclone Idai-affected area of Mafambisse, with a capacity for 10,000 students and a total built area of 17,780 m². It is considered the largest secondary school built in Mozambique since independence.",
-            title1: "Merec Nacala",
+            title1: "ESG MAFAMBISSE",
             text2:
               "Client :    TZU CHI  CHARITY FOUNDATION ;;Implementation Period - 2020-2023;;Role :  Architectural, Structural , Electrical , Water and Sewage  Design &  Site Upervision ",
             text1: "Location : Sofala, Mozambique ",
