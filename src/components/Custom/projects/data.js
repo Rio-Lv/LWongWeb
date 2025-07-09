@@ -2042,10 +2042,10 @@ export const default_object = {
           "CHINA JIANGXI INTERNATIONAL": {
             index: "6",
             text1: "Location:  Maputo , Mozambique ",
-            title1: "China Jiangxi International",
+            title1: "CHINA JIANGXI INTERNATIONAL",
             id: "CHINA JIANGXI INTERNATIONAL",
             text2:
-              "Client :   Jiangxi International;;Implementation period :  2018 - 2021;;Role : Architectural, Structural , Electrical , Water and Sewage  Design &  Site Supervision ",
+              "Client :    China Jiangxi International;;Implementation period :  2018-2021 (1st Phase);;Role : Architectural, Structural , Electrical , Water and Sewage  Design",
             title3: "PROJECT DESCRIPTION",
             images: [
               "https://storage.googleapis.com/lwongconsult_images/RESIDENTIAL/CHINA%20JIANGXI%20INTERNATIONAL/1.jpg",
@@ -2069,11 +2069,11 @@ export const default_object = {
           },
           "COHAFPA HOUSING COMPLEX": {
             index: "7",
-            text1: "Location:  Katembe , Maputo , Mozambique",
-            title1: "Cohafpa Housing Complex",
+            text1: "Location:  Katembe, Maputo, Mozambique",
+            title1: "COHAFPA HOUSING COMPLEX",
             id: "COHAFPA HOUSING COMPLEX",
             text2:
-              "Client :   COHAFPA;;Implementation period :  2021 - now;;Role :  Architectural, Structural , Electrical , Water and Sewage at Design Stage ",
+              "Client :   COHAFPA - Cooperativa Habitacional de Funcionarios Parlamentares ;;Implementation period :  2021 - now;;Role :  Architectural, Structural , Electrical , Water and Sewage at Design Stage ",
             title3: "PROJECT DESCRIPTION",
             images: [
               "https://storage.googleapis.com/lwongconsult_images/COHFPA/1.jpg",
@@ -2092,7 +2092,7 @@ export const default_object = {
             title2: "",
             name: "COHAFPA HOUSING COMPLEX",
             text3:
-              "Construction of a mixed-use commercial and residential complex for the parliament staff, including a Main Office Block, 471 housing units — comprising 393 individual villas and 78 apartments — along with ancillary buildings.",
+              "Construction of a mixed-use commercial and residential complex for the Parliament Staff, including 168 apartments, 269 individual villas, cultural & sport centre, primary school, health centre, police station, petrol station and other ancillary buildings.",
             listInfo: ["MAPUTO-MOZAMBIQUE", "DESIGN AND SUPERVISION"],
           },
           name: "RESIDENTIAL",
@@ -2329,7 +2329,7 @@ export const default_object = {
               "Construction of a secondary school in the cyclone Idai-affected area of Mafambisse, with a capacity for 10,000 students and a total built area of 17,780 m². It is considered the largest secondary school built in Mozambique since independence.",
             title1: "ESG MAFAMBISSE",
             text2:
-              "Client :    TZU CHI  CHARITY FOUNDATION ;;Implementation Period - 2020-2023;;Role :  Architectural, Structural , Electrical , Water and Sewage  Design &  Site Upervision ",
+              "Client :    TZU CHI  CHARITY FOUNDATION ;;Implementation Period - 2020-2023;;Role : Architectural, Structural , Electrical , Water and Sewage  Design &  Site Supervision ",
             text1: "Location : Sofala, Mozambique ",
             id: "ESG MAFAMBISSE",
             listInfo: ["SOFALA-MOZAMBIQUE", "DESIGN-SUPERVISION", "2020-2023"],
@@ -2364,7 +2364,7 @@ export const default_object = {
               "Construction of    a new  Flour  Milling Complex  consisting of   6 storage silos   total capcity of 18,000 T , Mill Building, Warehouses ,  Office Building, Staff Housing , access roads and parking.",
             title1: "Merec Nacala",
             text2:
-              "Client :    MEREC Industries ;;Implementation period :  2013- 2017;;Role :  Architectural, Structural, Water and Sewage Design and Site Supervision",
+              "Client :    MEREC INDUSTRIES ;;Implementation period :  2013- 2017;;Role :  Architectural, Structural, Water and Sewage Design and Site Supervision",
             text1: "Location:  Nacala, Mozambique ",
             id: "MEREC NACALA",
             listInfo: ["NACALA-MOZAMBIQUE", "DESIGN-SUPERVISION", "2013-2017"],
@@ -2422,7 +2422,7 @@ export const default_object = {
             ],
             title1: "Merec Beira",
             text2:
-              "Client :    MEREC Industries ;;Implementation period :  2007- 2011;;Role :  Architectural, Structural, Water and Sewage Design and Site Supervision",
+              "Client :    MEREC INDUSTRIES ;;Implementation period :  2007- 2011;;Role :  Architectural, Structural, Water and Sewage Design and Site Supervision",
             text3:
               "Construction of    a new  Flour  Milling Complex  consisting of   10 storage silos   total capacity of 30,000 T , Mill Building, Warehouses , Pasta Factory  , Office Building, Staff Housing , access roads and parking. 60,000 M3 of soil fill was required to reclaim the rice field low land.",
             id: "MEREC BEIRA",
@@ -2465,7 +2465,7 @@ export const default_object = {
             title1: "Merec Machava",
             title2: "",
             text2:
-              "Client :    MEREC Industries ;;Implementation period :  2000- 2001;;Role :  Structural Design of silos foundation and Site Supervision",
+              "Client :    MEREC INDUSTRIES ;;Implementation period :  2000- 2001;;Role :  Structural Design of silos foundation and Site Supervision",
             images: [
               "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FMEREC%20MACHAVA%2FMEREC%20MACHAVA_9923c6fc-d78a-4ce6-97b0-5248f518c968?alt=media&token=8627a1c7-298a-45b7-b7d0-8b3d464ba772",
               "https://firebasestorage.googleapis.com/v0/b/lwongconsulting-37781.appspot.com/o/trees%2Fusers%2FbhzfBvdgxZYrvKvDaXz5iaQzIjn1%2Froot%2FLWongWeb%2FPROJECTS%2FINDUSTRIAL%2FMEREC%20MACHAVA%2FMEREC%20MACHAVA_e49648e4-cbab-47fe-905f-abd52f6cb831?alt=media&token=669f46ce-880e-43f1-837e-de961e2ca562",
@@ -2483,10 +2483,10 @@ export const default_object = {
           "MEREC NACALA - PHASE 2": {
             index: "4",
             text3:
-              "Factory expansion project including the extension of the mill building to accommodate an additional 250T/day capacity, as well as the construction of an office block, ablution block, and residential blocks",
+              "Factory expansion project including the extension of the mill building to accommodate an additional 250T/day capacity (doubling the existing capacity ), as well as the construction of an office block, ablution block, and residential blocks",
             title1: "Merec Nacala - Phase 2",
             text2:
-              "Client :    MEREC Industries ;;Implementation period :  2020-2023;;Role :  Architectural, Structural , Electrical , Water and Sewage Design ( for Office and Houses )",
+              "Client :    MEREC INDUSTRIES ;;Implementation period :  2020-2023;;Role : Architectural, Structural, Water and Sewage Design ",
             text1: "Location : Nacala  , Mozambique",
             id: "MEREC NACALA - PHASE 2",
             listInfo: ["NACALA-MOZAMBIQUE", "DESIGN-SUPERVISION", "2020-2023"],
@@ -2512,10 +2512,10 @@ export const default_object = {
           "MEREC BEIRA - PHASE 3": {
             index: "5",
             text3:
-              "Factory expansion including the construction of an 11,500 m² mill building with a 600T/day capacity — the largest in Mozambique — along with a new intake tower and intake pits, bran silo building, and a new residential block.",
+              "Factory expansion including the construction of the new  11,500 m² mill building with a 600T/day capacity — the largest  in Mozambique — along with a new intake tower and intake pits, bran silo building, mill A&B silos  and a new residential block.",
             title1: "Merec Beira - Phase 3",
             text2:
-              "Client :    MEREC Industries ;;Implementation period :  2020-2025;;Role :  Architectural, Structural , Electrical , Water and Sewage Design ( for Office and Houses )",
+              "Client :    MEREC INDUSTRIES ;;Implementation period :  2020-2025;;Role : Architectural, Structural, Water and Sewage Design",
             text1: "Location : Nacala  , Mozambique",
             id: "MEREC BEIRA - PHASE 3",
             listInfo: ["BEIRA-MOZAMBIQUE", "DESIGN-SUPERVISION", "2020-2025"],
@@ -2541,6 +2541,8 @@ export const default_object = {
               "https://storage.googleapis.com/lwongconsult_images/MEREC%20BEIRA/16.jpg",
               "https://storage.googleapis.com/lwongconsult_images/MEREC%20BEIRA/17.jpg",
               "https://storage.googleapis.com/lwongconsult_images/MEREC%20BEIRA/18.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/MEREC%20BEIRA/19.jpg",
+              "https://storage.googleapis.com/lwongconsult_images/MEREC%20BEIRA/20.jpg",
             ],
           },
           "EDO - SOCIMOL": {
@@ -2549,7 +2551,7 @@ export const default_object = {
               "Construction of a new bakery factory with a production capacity of 600,000 units per day. The total construction area is 7,500 m², including a 7,150 m² factory building, bakery shop, truck washing bay, maintenance workshop, LNG station, and gatehouse.",
             title1: "EDO - SOCIMOL",
             text2:
-              "Client :    MEREC Industries ;;Implementation period :  2021-2023;;Role :  Architectural, Structural , Water and Sewage Design ( for Office and Houses )",
+              "Client :    MEREC INDUSTRIES ;;Implementation period :  2021-2023;;Role : Architectural, Structural, Water / Sewage, Access Roads Design",
             text1: "Location : Nacala  , Mozambique",
             id: "EDO - SOCIMOL",
             listInfo: ["NACALA-MOZAMBIQUE", "DESIGN-SUPERVISION", "2021-2023"],
