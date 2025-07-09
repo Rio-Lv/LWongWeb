@@ -19,7 +19,28 @@ import "./App.css";
 
 function App() {
   const [navbar, setNavbar] = useState(false);
-  useEffect(() => {}, []);
+
+  // Disable pointer events while the user is actively scrolling to
+  // prevent hover animations from causing jitters. Pointer events are
+  // re-enabled shortly after scrolling stops (debounced).
+  useEffect(() => {
+    let timer;
+    const disablePointer = () => {
+      document.body.style.pointerEvents = "none";
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        document.body.style.pointerEvents = "";
+      }, 150);
+    };
+
+    window.addEventListener("scroll", disablePointer, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", disablePointer);
+      clearTimeout(timer);
+      document.body.style.pointerEvents = "";
+    };
+  }, []);
+
   const dispId = uuidv4;
   return (
     <div>
